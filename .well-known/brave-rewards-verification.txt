@@ -1,4 +1,4 @@
 This is a Brave Rewards publisher verification file.
 
 Domain: chatosolutions.com
-Token: 3c93f9b64086b6809c6fc9e2f0e76475162a46e46431d6493a67bb4e9bfc7d71
+Token: 304ebebaee46e615043df331b878d388396d668596ebf5fe288c3ee384aca5d4
