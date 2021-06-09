@@ -16,23 +16,23 @@ chatosolutions <- argonPage(
       side = "left",
       argonNavItem(
         name = "Home",
-       src = "index.html",
-       icon = icon("fas fa-home"),
+        src = "index.html",
+        icon = icon("fas fa-home"),
         tooltip = "Home"
-      )#,
-      # argonNavItem(
-      #   name = "Blog",
-      #   src = "blog.html",
-      #   icon = icon("fas fa-rss-square"), 
-      #   tooltip = "Blog"
-      # )
-    #   argonNavItem(
-    #     name = "Contact",
-    #     # src = "https://www.instagram.com/chatosolutions/?hl=es-la",
-    #     icon = icon("fas fa-address-book"),
-    #     tooltip = "Contact"
-    #   )
-    # 
+      ),
+      argonNavItem(
+        name = "Blog",
+        src = "blog.html",
+        icon = icon("fas fa-rss-square"), 
+        tooltip = "Blog"
+      )
+      #   argonNavItem(
+      #     name = "Contact",
+      #     # src = "https://www.instagram.com/chatosolutions/?hl=es-la",
+      #     icon = icon("fas fa-address-book"),
+      #     tooltip = "Contact"
+      #   )
+      # 
     ),
     # right menu
     argonNavMenu(
@@ -42,70 +42,13 @@ chatosolutions <- argonPage(
         src = "https://www.instagram.com/chatosolutions/?hl=es-la",
         icon = icon("fab fa-instagram"),
         tooltip = "Follow us on Instagram"
-    ),
-    argonNavItem(
-      name = "Facebook",
-      src = "https://www.facebook.com/chatosolutions",
-      icon = icon("fab fa-facebook"),
-      tooltip = "Follow us on Facebook"
-    ),
-    argonNavItem(
-      name = "Linkedin",
-      src = "https://www.linkedin.com/company/chato-solutions/?viewAsMember=true",
-      icon = icon("fab fa-linkedin"),
-      tooltip = "Follow us on Linkedin"
-    )
-    
+      )
     )
   ),
   footer = argonFooter(
     has_card = FALSE,
-    #status = "info",
-    #gradient = TRUE,
-    argonContainer(
-      size = "lg",
-      argonRow(
-        argonColumn(
-          width = 6,
-          argonIconWrapper(
-            iconTag = argonIcon("atom"),
-            size = "lg",
-            status = "success",
-            shadow = TRUE,
-            hover_shadow = TRUE
-          ),
-          argonH1(
-            display = 3,
-            "It's easy to support Chato Solutions"
-          ),
-          argonLead(
-            "Use the new Brave Browser to improve the Chato Solutions Apps"
-          ),
-          argonButton(
-            name = "Download",
-            status = "danger",
-            size = "lg",
-            src = "https://brave.com/lsf634"
-            #toggle_modal = TRUE,
-            #modal_id = "modal1"
-          ),
-        ),
-        argonColumn(
-          width = 6,
-          argonCarousel(
-            width = 12,
-            id = "carousel2",
-            argonCarouselItem(
-              src = "inst/images/brave.png",
-              active = TRUE
-            ),
-            argonCarouselItem(
-              src = "inst/images/BAT.png",
-              active = FALSE
-            )
-          ) %>% argonPersp(side = "right")
-        )
-      )
+    argonLead(
+      "@Chato Solutions, 2020. Powered by ARGONR"
     )
   ) %>% argonMargin(orientation = "t", value = 20),
   # main content
@@ -127,7 +70,7 @@ chatosolutions <- argonPage(
             #htmltools::span("completed with examples")
           ) %>% argonTextColor(color = "white"),
           #argonLead(
-           # "Argon is a great free UI package based on Bootstrap 
+          # "Argon is a great free UI package based on Bootstrap 
           #  4 that includes the most important components and features"
           #) %>% argonTextColor(color = "white")
         ),
@@ -208,7 +151,7 @@ chatosolutions <- argonPage(
             htmltools::span("Web version")
           ) %>% argonTextColor(color = "white"),
           argonButton(
-            name = "Go to!",
+            name = "Soon!",
             status = "danger",
             size = "lg",
             src = "app.html"
@@ -237,8 +180,5 @@ chatosolutions <- argonPage(
       
     )
   )
-
+  
 )
-
-
-argonPageTemplate(filename = "index", path = getwd(), chatosolutions)
