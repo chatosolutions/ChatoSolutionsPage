@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Chato Solutions</title>
+    <link>https://www.chatosolutions.com/</link>
+    <atom:link href="https://www.chatosolutions.com/blog.xml" rel="self" type="application/rss+xml"/>
+    <description>Chato Solutions
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Fetkovich Decline Curves</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-06-16-fdc</link>
+      <description>A short description of the post.</description>
+      <guid>https://www.chatosolutions.com/posts/2021-06-16-fdc</guid>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-06-16-fdc/fdc_plot.png" medium="image" type="image/png" width="624" height="384"/>
+    </item>
+    <item>
+      <title>Lorenz coefficient L</title>
+      <dc:creator>Rigoberto Chandomí Vázquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-06-10-lc</link>
+      <description>Example. Calculate L in R</description>
+      <guid>https://www.chatosolutions.com/posts/2021-06-10-lc</guid>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-06-10-lc/lc_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Logistic Growth Model(LMG) model</title>
+      <dc:creator>Rigoberto Chandomí Vázquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-06-07-lmg-model</link>
+      <description>Hubbert used the LGM approach to predict the cumulative production from gas and oil fields or region</description>
+      <guid>https://www.chatosolutions.com/posts/2021-06-07-lmg-model</guid>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-06-07-lmg-model/lmg-model_files/figure-html5/unnamed-chunk-1-2.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Shale content methods</title>
+      <dc:creator>Rigoberto Chandomí Vázquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-06-05-firstpost</link>
+      <description>Exercise 5.1 Sensitivity on Vsh Calculation 
+Ref. Sanni, M. (2019) Petroleum Engineering. Principles, Calculatios, and Workflows</description>
+      <guid>https://www.chatosolutions.com/posts/2021-06-05-firstpost</guid>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-06-05-firstpost/firstpost_files/figure-html5/unnamed-chunk-1-2.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>
