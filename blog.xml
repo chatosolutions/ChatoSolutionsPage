@@ -7,7 +7,25 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Arps Type Curves</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-06-19-acd</link>
+      <description>Generate your own type curve to curve matching</description>
+      <guid>https://www.chatosolutions.com/posts/2021-06-19-acd</guid>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-06-19-acd/acd_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Reticulate in R</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-06-19-reticulateex</link>
+      <description>Read log well .las file with Reticulate in R</description>
+      <guid>https://www.chatosolutions.com/posts/2021-06-19-reticulateex</guid>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-06-19-reticulateex/Reticulate.png" medium="image" type="image/png" width="169" height="118"/>
+    </item>
     <item>
       <title>Fetkovich Decline Curves</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
