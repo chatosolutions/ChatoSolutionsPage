@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-07-03-spreadsheet/",
+    "title": "Spreadsheets",
+    "description": "Some reservoir simulation spreadsheets in excel and VBA",
+    "author": [
+      {
+        "name": "Rigoberto Chandomi Vazquez",
+        "url": "https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/"
+      }
+    ],
+    "date": "2021-07-03",
+    "categories": [],
+    "contents": "\r\nWe want to share some excel spreadsheets about basic reservoir simulation and waterflooding based on Abou-Kassem et. al. (2006) and Willhite (1986)\r\nARS (Cartesian)\r\nARS is a basic reservoir simulation spreadsheet. With ARS you can do examples considering the follow features:\r\n-One dimension\r\n-One phase (oil)\r\n-Incompressible or Slightly compressible fluid\r\n-Rock porosity constant or depending of pressure\r\n-5 different types of boundary conditions\r\n-One well (specified production rate or specified flowing pressure)\r\n\r\nAcademic Reservoir Simulator (1D - radial)\r\nWith ARS (1D - radial) you can do examples considering the follow features:\r\n-One dimension in radial coordinates -One phase (oil) -Slightly compressible fluid -Rock porosity constant or depending of pressure -4 different types of boundary conditions -Well with specified production rate or specified flowing pressure)\r\n ARS (1D - radial-Fractured)\r\nARS (1D - radial-Fractured) is part of a serie of basic reservoir simulation spreadsheets. With ARS (1D - radial-Fractured) you can do examples considering the follow features:\r\nNaturally fractured reservoir (Warren and Root model) One dimension in radial coordinates One phase (oil) Slightly compressible fluid Rock porosity depending of pressure 4 different types of boundary conditions Well with specified production rate or specified flowing pressure)\r\nYou will need the petrophysics properties of matrix and fracture (Porosity, compressibility, permeability and matrix-fracture shape fracture). You have the option to use a constant or variable time step.\r\n\r\nIn the follow image you can observe the double slope expected from the Warren and Root model.\r\n Academic WaterFlooding (AWF)\r\nAWF is part of a serie of basic reservoir engineering spreadsheets. With AWD you can do examples using thw Buckley-Leverett model and Welge solution estimating the displacement performance for a linear waterflood at constant injection rate.The necessary data is shown in the next picture.\r\n\r\nAWF calculates the Sw at breakthrough and generates three differents charts:\r\n-Sw vs fw -time vs Qo -x vs Sw\r\nAlso it calculates Np, WOR and Qo at differents times. Download it and tell us what you think.\r\n\r\nFiles\r\nReferences\r\nAbou-Kassen, J.H.; Farouq, S. M. and Rafiq, M (2006) Petroleum reservoir simulation A basic approach. Willhite, G. P. (1986) Waterflooding\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-07-03T18:35:49-05:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-06-19-acd/",
     "title": "Arps Type Curves",
     "description": "Generate your own type curve to curve matching",

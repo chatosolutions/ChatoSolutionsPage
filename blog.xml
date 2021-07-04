@@ -7,7 +7,15 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Spreadsheets</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-07-03-spreadsheet</link>
+      <description>Some reservoir simulation spreadsheets in excel and VBA</description>
+      <guid>https://www.chatosolutions.com/posts/2021-07-03-spreadsheet</guid>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Arps Type Curves</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
