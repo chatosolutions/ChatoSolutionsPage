@@ -7,7 +7,16 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Reservoir simulation 1D example</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-07-11-sim1d</link>
+      <description>Reservoir simulation example from Ertekin, T., et. al. (2001) Basic Applied Reservoir Simulation.</description>
+      <guid>https://www.chatosolutions.com/posts/2021-07-11-sim1d</guid>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-07-11-sim1d/ex.png" medium="image" type="image/png" width="998" height="501"/>
+    </item>
     <item>
       <title>Spreadsheets</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
@@ -15,6 +24,7 @@
       <description>Some reservoir simulation spreadsheets in excel and VBA</description>
       <guid>https://www.chatosolutions.com/posts/2021-07-03-spreadsheet</guid>
       <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-07-03-spreadsheet/radial.png" medium="image" type="image/png" width="1347" height="767"/>
     </item>
     <item>
       <title>Arps Type Curves</title>
