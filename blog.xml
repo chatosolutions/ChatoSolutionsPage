@@ -15,6 +15,7 @@
       <description>A basic drawdown test analysis using semilog method.</description>
       <guid>https://www.chatosolutions.com/posts/2021-08-18-ex1semilog</guid>
       <pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-08-18-ex1semilog/DD_plot.png" medium="image" type="image/png" width="624" height="384"/>
     </item>
     <item>
       <title>Reservoir simulation 1D example</title>
