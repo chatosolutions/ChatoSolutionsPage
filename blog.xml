@@ -7,7 +7,15 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Drawdown semilog analysis</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-08-18-ex1semilog</link>
+      <description>A basic drawdown test analysis using semilog method.</description>
+      <guid>https://www.chatosolutions.com/posts/2021-08-18-ex1semilog</guid>
+      <pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Reservoir simulation 1D example</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
