@@ -7,7 +7,16 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 18 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Fetkovich-Arps Type Curves</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-09-04-fetarps</link>
+      <description>Estimating reservoir parameter using Fetkovich-Arps Type Curves excel spreadsheet.</description>
+      <guid>https://www.chatosolutions.com/posts/2021-09-04-fetarps</guid>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-09-04-fetarps/FET.png" medium="image" type="image/png" width="1280" height="1117"/>
+    </item>
     <item>
       <title>Drawdown semilog analysis</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
