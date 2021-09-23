@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2021-09-23-ptatypecurves/",
+    "title": "Log-Log type curve analysis",
+    "description": "Estimating reservoir parameter using Gringarten-Bourdet Type Curve excel spreadsheet for a vertical well in a homogeneous reservoir with constant WBS and skin factor",
+    "author": [
+      {
+        "name": "Rigoberto Chandomi Vazquez",
+        "url": "https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/"
+      }
+    ],
+    "date": "2021-09-23",
+    "categories": [],
+    "contents": "\r\nThe Gringarten-Bourdet Type Curve describes the pressure for a vertical well with constant WBS and skin in an infinite-acting reservoir.\r\nThe dimensionless pressure-derivative function \\(P'_D\\) is plotted as a function of \\(t_D/C_D\\) for various values of the correlating parameter \\(C_De^{2s}\\)\r\nThe \\(P_D\\) and \\(P'_D\\) type curves are in a single plot, permiting simultaneous type-curve analysis with both pressure and pressure-derivative curves and reducing the ambiguity.\r\nInterpretation Process\r\nField data (\\(\\Delta P\\) and \\(\\Delta P'\\) vs. \\(t\\) for DD, \\(\\Delta P\\) and \\(\\Delta P'\\) vs. \\(\\Delta t\\) or \\(t_e\\) for BU ) are plotted on log-log scale\r\n\r\nIdentify the IARF period indicated by the horizontal portion od the derivative and the WBS-dominated period, indicated by the unit-slope portion of the derivative.\r\nMatch the data on the curves, then pick any convenient point (match point, red point)\r\n\r\nRead \\(\\Delta P\\) and \\(P_D\\) corresponding to the match point, read \\(t\\) and \\(t_D/C_D\\) corresponding to the match point and read the matching value of \\(C_De^{2s}\\)\r\n\r\nCalculate well test parameters with the following equations\r\n\\[k = \\frac{141.2qB \\mu}{h} \\left(\\frac{P_D}{\\Delta P}\\right)_{MP}\\]\r\n\\[C_D = \\frac{0.0002637k}{\\phi\\mu c_t r_{w}^2} \\left(\\frac{t}{t_D/C_D}\\right)_{MP}\\]\r\n\\[C_D = \\frac{\\phi c_t h r_{w}^2}{0.894} C_D\\]\r\n\\[s = 0.5ln\\left(\\frac{C_De^{2s}}{C_D}\\right)\\]\r\nExample\r\n\r\nExcel File\r\nReferences\r\nSun, H. (2015) Advanced Production Decline Analysis and Application Clarkson C.R. (2021) Unconventional Reservoir Rate-Transient Analysis\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-09-23-ptatypecurves/PTA_TC1.png",
+    "last_modified": "2021-09-23T13:44:35-05:00",
+    "input_file": "ptatypecurves.utf8.md",
+    "preview_width": 3542,
+    "preview_height": 2723
+  },
+  {
     "path": "posts/2021-09-04-fetarps/",
     "title": "Fetkovich-Arps Type Curves",
     "description": "Estimating reservoir parameter using Fetkovich-Arps Type Curves excel spreadsheet.",
