@@ -7,7 +7,16 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Interactive Production Plots</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-09-23-productionplots</link>
+      <description>Some examples of production plots using Plotly</description>
+      <guid>https://www.chatosolutions.com/posts/2021-09-23-productionplots</guid>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-09-23-productionplots/prod_plot.png" medium="image" type="image/png" width="800" height="494"/>
+    </item>
     <item>
       <title>Log-Log type curve analysis</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
@@ -16,14 +25,6 @@
       <guid>https://www.chatosolutions.com/posts/2021-09-23-ptatypecurves</guid>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-09-23-ptatypecurves/PTA_TC1.png" medium="image" type="image/png" width="3542" height="2723"/>
-    </item>
-    <item>
-      <title>Interactive Production Plots</title>
-      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
-      <link>https://www.chatosolutions.com/posts/2021-09-23-productionplots</link>
-      <description>Some examples of production plots using Plotly</description>
-      <guid>https://www.chatosolutions.com/posts/2021-09-23-productionplots</guid>
-      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Fetkovich-Arps Type Curves</title>
