@@ -7,7 +7,15 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 31 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Simulate well test response using analytical solutions</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-10-17-stephest1</link>
+      <description>Using Stehfest Numerical Laplace Inversion algorithm to simulate well pressure response.</description>
+      <guid>https://www.chatosolutions.com/posts/2021-10-17-stephest1</guid>
+      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Interactive Production Plots</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
