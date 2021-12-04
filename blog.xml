@@ -7,7 +7,16 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 06 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>1D radial Reservoir Simulation</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2021-11-07-radial1d</link>
+      <description>Reservoir simulation example (7.12) from Abou-Kassem, J., Islam, R., &amp; Farouq Ali, S. (2020) Petroleum reservoir simulation (2nd ed.)</description>
+      <guid>https://www.chatosolutions.com/posts/2021-11-07-radial1d</guid>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2021-11-07-radial1d/imagen1.png" medium="image" type="image/png" width="327" height="188"/>
+    </item>
     <item>
       <title>Pseudopressure Calculation </title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
