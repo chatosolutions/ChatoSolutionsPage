@@ -7,12 +7,30 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Tiab's direct synthesis (TDS) technique</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-01-22-tds1</link>
+      <description>TDS technique for pressure transient analysis</description>
+      <guid>https://www.chatosolutions.com/posts/2022-01-22-tds1</guid>
+      <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-01-22-tds1/TDS_1.png" medium="image" type="image/png" width="1236" height="730"/>
+    </item>
+    <item>
+      <title>Material Balance: example 1, part 1</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-01-22-mb1</link>
+      <description>Oil material balance calculation for a model without a gas cap and aquifer</description>
+      <guid>https://www.chatosolutions.com/posts/2022-01-22-mb1</guid>
+      <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-01-22-mb1/mb1_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>1D radial Reservoir Simulation</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-11-07-radial1d</link>
-      <description>Reservoir simulation example (7.12) from Abou-Kassem, J., Islam, R., &amp; Farouq Ali, S. (2020) Petroleum reservoir simulation (2nd ed.)</description>
+      <description>Reservoir simulation example (7.12) from AAbou-Kassem, J., Farouq, S. M. &amp; Rafiq, M. (2006) Reservoir simulation. A basic approach. Gulf Publising Company</description>
       <guid>https://www.chatosolutions.com/posts/2021-11-07-radial1d</guid>
       <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-11-07-radial1d/imagen1.png" medium="image" type="image/png" width="327" height="188"/>
