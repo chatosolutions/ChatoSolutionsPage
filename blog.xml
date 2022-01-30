@@ -13,6 +13,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2022-01-22-tds1</link>
       <description>TDS technique for pressure transient analysis</description>
+      <category>R</category>
+      <category>Well testing</category>
       <guid>https://www.chatosolutions.com/posts/2022-01-22-tds1</guid>
       <pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2022-01-22-tds1/TDS_1.png" medium="image" type="image/png" width="1236" height="730"/>
@@ -22,6 +24,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2022-01-22-mb1</link>
       <description>Oil material balance calculation for a model without a gas cap and aquifer</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2022-01-22-mb1</guid>
       <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2022-01-22-mb1/mb1_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -31,15 +35,20 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-11-07-radial1d</link>
       <description>Reservoir simulation example (7.12) from AAbou-Kassem, J., Farouq, S. M. &amp; Rafiq, M. (2006) Reservoir simulation. A basic approach. Gulf Publising Company</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
+      <category>Reservoir simulation</category>
       <guid>https://www.chatosolutions.com/posts/2021-11-07-radial1d</guid>
       <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://www.chatosolutions.com/posts/2021-11-07-radial1d/imagen1.png" medium="image" type="image/png" width="327" height="188"/>
+      <media:content url="https://www.chatosolutions.com/posts/2021-11-07-radial1d/radial1d_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Pseudopressure Calculation </title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-11-06-pseudopressure</link>
-      <description>Estimate Pseudo Pressure to use it in reservoir engineering calculations</description>
+      <description>Estimate Pseudopressure to use it in reservoir engineering calculations</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2021-11-06-pseudopressure</guid>
       <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-11-06-pseudopressure/newplot.png" medium="image" type="image/png" width="624" height="384"/>
@@ -48,7 +57,8 @@
       <title>Define Functions in R</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-11-03-function1</link>
-      <description>Learn how to define a own function to eliminate repetition from code and allows code reuse.</description>
+      <description>Learn how to define an own function to eliminate repetition from code and allows code reuse.</description>
+      <category>R</category>
       <guid>https://www.chatosolutions.com/posts/2021-11-03-function1</guid>
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-11-03-function1/function1_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -58,6 +68,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-10-17-stephest1</link>
       <description>Using Stehfest Numerical Laplace Inversion algorithm to simulate well pressure response.</description>
+      <category>R</category>
+      <category>Well testing</category>
       <guid>https://www.chatosolutions.com/posts/2021-10-17-stephest1</guid>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-10-17-stephest1/ste1.png" medium="image" type="image/png" width="800" height="494"/>
@@ -76,6 +88,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-09-23-ptatypecurves</link>
       <description>Estimating reservoir parameter using Gringarten-Bourdet Type Curve excel spreadsheet for a vertical well in a homogeneous reservoir with constant WBS and skin factor</description>
+      <category>Excel</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2021-09-23-ptatypecurves</guid>
       <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-09-23-ptatypecurves/PTA_TC1.png" medium="image" type="image/png" width="3542" height="2723"/>
@@ -85,6 +99,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-09-04-fetarps</link>
       <description>Estimating reservoir parameter using Fetkovich-Arps Type Curves excel spreadsheet.</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2021-09-04-fetarps</guid>
       <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-09-04-fetarps/FET.png" medium="image" type="image/png" width="1280" height="1117"/>
@@ -94,6 +110,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-08-18-ex1semilog</link>
       <description>A basic drawdown test analysis using semilog method.</description>
+      <category>R</category>
+      <category>Well testing</category>
       <guid>https://www.chatosolutions.com/posts/2021-08-18-ex1semilog</guid>
       <pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-08-18-ex1semilog/DD_plot.png" medium="image" type="image/png" width="624" height="384"/>
@@ -103,6 +121,9 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-07-11-sim1d</link>
       <description>Reservoir simulation example from Ertekin, T., et. al. (2001) Basic Applied Reservoir Simulation.</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
+      <category>Reservoir simulation</category>
       <guid>https://www.chatosolutions.com/posts/2021-07-11-sim1d</guid>
       <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-07-11-sim1d/ex.png" medium="image" type="image/png" width="998" height="501"/>
@@ -112,6 +133,9 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-07-03-spreadsheet</link>
       <description>Some reservoir simulation spreadsheets in excel and VBA</description>
+      <category>Excel</category>
+      <category>Reservoir engineering</category>
+      <category>Reservoir simulation</category>
       <guid>https://www.chatosolutions.com/posts/2021-07-03-spreadsheet</guid>
       <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-07-03-spreadsheet/radial.png" medium="image" type="image/png" width="1347" height="767"/>
@@ -121,6 +145,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-06-19-acd</link>
       <description>Generate your own type curve to curve matching</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2021-06-19-acd</guid>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-06-19-acd/acd_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -130,6 +156,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-06-19-reticulateex</link>
       <description>Read log well .las file with Reticulate in R</description>
+      <category>R</category>
+      <category>Python</category>
       <guid>https://www.chatosolutions.com/posts/2021-06-19-reticulateex</guid>
       <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-06-19-reticulateex/Reticulate.png" medium="image" type="image/png" width="169" height="118"/>
@@ -139,6 +167,8 @@
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-06-16-fdc</link>
       <description>A short description of the post.</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2021-06-16-fdc</guid>
       <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-06-16-fdc/fdc_plot.png" medium="image" type="image/png" width="624" height="384"/>
@@ -148,6 +178,8 @@
       <dc:creator>Rigoberto Chandomí Vázquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-06-10-lc</link>
       <description>Example. Calculate L in R</description>
+      <category>R</category>
+      <category>Petrophysics</category>
       <guid>https://www.chatosolutions.com/posts/2021-06-10-lc</guid>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-06-10-lc/lc_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -157,6 +189,8 @@
       <dc:creator>Rigoberto Chandomí Vázquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2021-06-07-lmg-model</link>
       <description>Hubbert used the LGM approach to predict the cumulative production from gas and oil fields or region</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
       <guid>https://www.chatosolutions.com/posts/2021-06-07-lmg-model</guid>
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-06-07-lmg-model/lmg-model_files/figure-html5/unnamed-chunk-1-2.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -167,6 +201,8 @@
       <link>https://www.chatosolutions.com/posts/2021-06-05-firstpost</link>
       <description>Exercise 5.1 Sensitivity on Vsh Calculation 
 Ref. Sanni, M. (2019) Petroleum Engineering. Principles, Calculatios, and Workflows</description>
+      <category>R</category>
+      <category>Petrophysics</category>
       <guid>https://www.chatosolutions.com/posts/2021-06-05-firstpost</guid>
       <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2021-06-05-firstpost/firstpost_files/figure-html5/unnamed-chunk-1-2.png" medium="image" type="image/png" width="1248" height="768"/>
