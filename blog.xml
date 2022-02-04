@@ -7,7 +7,26 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>dca1_py</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-01-31-dca1py</link>
+      <description>A short description of the post.</description>
+      <guid>https://www.chatosolutions.com/posts/2022-01-31-dca1py</guid>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Inflow performance relationship: Part 1</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-01-24-pi1</link>
+      <description>Generating IPR curve for single and two-phase reservoirs</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
+      <guid>https://www.chatosolutions.com/posts/2022-01-24-pi1</guid>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-01-24-pi1/pi1_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Tiab's direct synthesis (TDS) technique</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
