@@ -7,7 +7,16 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 05 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Inflow performance relationship: Part 2</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-02-18-pi2</link>
+      <description>Generating IPR curve for two-phase reservoirs: Voguel Method</description>
+      <guid>https://www.chatosolutions.com/posts/2022-02-18-pi2</guid>
+      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-02-18-pi2/pi2_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Material Balance: example 1, part 2</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>

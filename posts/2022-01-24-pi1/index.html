@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 
 <head>
-<script data-ad-client="ca-pub-8852121115266328" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
@@ -2153,7 +2152,7 @@ Shiny Apps
 <p><span class="math inline">\(Permeability: k = 8.2 \ md\)</span></p>
 <p><span class="math inline">\(Pay \ zone \ thickness: h = 53 \ ft\)</span></p>
 <p><span class="math inline">\(Reservoir \ pressure: P_e = 5651 \ psi\)</span></p>
-<p><span class="math inline">\(Bubble-point \  pressure: p_b=50 \ psia\)</span></p>
+<p><span class="math inline">\(Bubble-point \  pressure: p_b=5651 \ psia\)</span></p>
 <p><span class="math inline">\(Oil \ formation \ volume \ factor: B_o=1.1\)</span></p>
 <p><span class="math inline">\(Oil \ viscosity: \mu _o = 1.7 \ cp\)</span></p>
 <p><span class="math inline">\(Total compressibility: c_t = 0.0000129 \ psi^{-1}\)</span></p>
@@ -2162,7 +2161,7 @@ Shiny Apps
 <p><span class="math inline">\(Skin \ factor: S=0\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>py</span> <span class='op'>&lt;-</span>  <span class='fl'>5654</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>py</span> <span class='op'>&lt;-</span>  <span class='fl'>5651</span>
 <span class='va'>k</span> <span class='op'>&lt;-</span> <span class='fl'>8.2</span>
 <span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fl'>53</span>
 <span class='va'>Bo</span> <span class='op'>&lt;-</span> <span class='fl'>1.1</span>
@@ -2197,16 +2196,16 @@ Shiny Apps
 </code></pre>
 </div>
 <pre><code>         Pwf        Qo
-1     0.0000 1112.5855
-2   628.2222  988.9648
-3  1256.4444  865.3442
-4  1884.6667  741.7236
-5  2512.8889  618.1030
-6  3141.1111  494.4824
-7  3769.3333  370.8618
-8  4397.5556  247.2412
-9  5025.7778  123.6206
-10 5654.0000    0.0000</code></pre>
+1     0.0000 1111.9951
+2   627.8889  988.4401
+3  1255.7778  864.8851
+4  1883.6667  741.3301
+5  2511.5556  617.7751
+6  3139.4444  494.2201
+7  3767.3333  370.6650
+8  4395.2222  247.1100
+9  5023.1111  123.5550
+10 5651.0000    0.0000</code></pre>
 </div>
 <p>Now we can plot IPR with ggplot2</p>
 <div class="layout-chunk" data-layout="l-body">
