@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+<title>Chato Solutions: Survey calculation methods: part 1 </title>
+
+<meta property="description" itemprop="description" content="The tangential method in R"/>
+
+<link rel="canonical" href="https://www.chatosolutions.com/posts/2022-05-01-surveycal/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2022-05-01"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-05-01"/>
+<meta name="article:author" content="Rigoberto Chandomi Vazquez"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Chato Solutions: Survey calculation methods: part 1 "/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="The tangential method in R"/>
+<meta property="og:url" content="https://www.chatosolutions.com/posts/2022-05-01-surveycal/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Chato Solutions"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="Chato Solutions: Survey calculation methods: part 1 "/>
+<meta property="twitter:description" content="The tangential method in R"/>
+<meta property="twitter:url" content="https://www.chatosolutions.com/posts/2022-05-01-surveycal/"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Chato Solutions: Survey calculation methods: part 1 "/>
+<meta name="citation_fulltext_html_url" content="https://www.chatosolutions.com/posts/2022-05-01-surveycal/"/>
+<meta name="citation_online_date" content="2022/05/01"/>
+<meta name="citation_publication_date" content="2022/05/01"/>
+<meta name="citation_author" content="Rigoberto Chandomi Vazquez"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Survey calculation methods: part 1 "]},{"type":"character","attributes":{},"value":["The tangential method in R"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Rigoberto Chandomi Vazquez"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/"]}]}]},{"type":"character","attributes":{},"value":["05-01-2022"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Drilling"]},{"type":"character","attributes":{},"value":["https://www.chatosolutions.com/posts/2022-05-01-surveycal/"]},{"type":"character","attributes":{},"value":["https://www.chatosolutions.com/posts/2022-05-01-surveycal/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["Aver.png","Survey.csv","surveycal_files/anchor-4.2.2/anchor.min.js","surveycal_files/bowser-1.9.3/bowser.min.js","surveycal_files/crosstalk-1.1.1/css/crosstalk.css","surveycal_files/crosstalk-1.1.1/js/crosstalk.js","surveycal_files/crosstalk-1.1.1/js/crosstalk.js.map","surveycal_files/crosstalk-1.1.1/js/crosstalk.min.js","surveycal_files/crosstalk-1.1.1/js/crosstalk.min.js.map","surveycal_files/distill-2.2.21/template.v2.js","surveycal_files/header-attrs-2.11/header-attrs.js","surveycal_files/htmlwidgets-1.5.3/htmlwidgets.js","surveycal_files/jquery-3.5.1/jquery-AUTHORS.txt","surveycal_files/jquery-3.5.1/jquery.js","surveycal_files/jquery-3.5.1/jquery.min.js","surveycal_files/jquery-3.5.1/jquery.min.map","surveycal_files/plotly-binding-4.9.3/plotly.js","surveycal_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css","surveycal_files/plotly-main-1.57.1/plotly-latest.min.js","surveycal_files/popper-2.6.0/popper.min.js","surveycal_files/tippy-6.2.7/tippy-bundle.umd.min.js","surveycal_files/tippy-6.2.7/tippy-light-border.css","surveycal_files/tippy-6.2.7/tippy.css","surveycal_files/tippy-6.2.7/tippy.umd.min.js","surveycal_files/typedarray-0.1/typedarray.min.js","surveycal_files/webcomponents-2.0.0/webcomponents.js","tang.png"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+<meta name="distill:offset" content="../.."/>
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      tolerance: 5,
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #0F2E3D;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+  min-width: 150px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative; min-height: 500px; }
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+/* adjust viewport for navbar height */
+/* helps vertically center bootstrap (non-distill) content */
+.min-vh-100 {
+  min-height: calc(100vh - 100px) !important;
+}
+
+</style>
+
+<script src="../../site_libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+<script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+<script type="application/javascript">
+
+function getMeta(metaName) {
+  var metas = document.getElementsByTagName('meta');
+  for (let i = 0; i < metas.length; i++) {
+    if (metas[i].getAttribute('name') === metaName) {
+      return metas[i].getAttribute('content');
+    }
+  }
+  return '';
+}
+
+function offsetURL(url) {
+  var offset = getMeta('distill:offset');
+  return offset ? offset + '/' + url : url;
+}
+
+function createFuseIndex() {
+
+  // create fuse index
+  var options = {
+    keys: [
+      { name: 'title', weight: 20 },
+      { name: 'categories', weight: 15 },
+      { name: 'description', weight: 10 },
+      { name: 'contents', weight: 5 },
+    ],
+    ignoreLocation: true,
+    threshold: 0
+  };
+  var fuse = new window.Fuse([], options);
+
+  // fetch the main search.json
+  return fetch(offsetURL('search.json'))
+    .then(function(response) {
+      if (response.status == 200) {
+        return response.json().then(function(json) {
+          // index main articles
+          json.articles.forEach(function(article) {
+            fuse.add(article);
+          });
+          // download collections and index their articles
+          return Promise.all(json.collections.map(function(collection) {
+            return fetch(offsetURL(collection)).then(function(response) {
+              if (response.status === 200) {
+                return response.json().then(function(articles) {
+                  articles.forEach(function(article) {
+                    fuse.add(article);
+                  });
+                })
+              } else {
+                return Promise.reject(
+                  new Error('Unexpected status from search index request: ' +
+                            response.status)
+                );
+              }
+            });
+          })).then(function() {
+            return fuse;
+          });
+        });
+
+      } else {
+        return Promise.reject(
+          new Error('Unexpected status from search index request: ' +
+                      response.status)
+        );
+      }
+    });
+}
+
+window.document.addEventListener("DOMContentLoaded", function (event) {
+
+  // get search element (bail if we don't have one)
+  var searchEl = window.document.getElementById('distill-search');
+  if (!searchEl)
+    return;
+
+  createFuseIndex()
+    .then(function(fuse) {
+
+      // make search box visible
+      searchEl.classList.remove('hidden');
+
+      // initialize autocomplete
+      var options = {
+        autoselect: true,
+        hint: false,
+        minLength: 2,
+      };
+      window.autocomplete(searchEl, options, [{
+        source: function(query, callback) {
+          const searchOptions = {
+            isCaseSensitive: false,
+            shouldSort: true,
+            minMatchCharLength: 2,
+            limit: 10,
+          };
+          var results = fuse.search(query, searchOptions);
+          callback(results
+            .map(function(result) { return result.item; })
+          );
+        },
+        templates: {
+          suggestion: function(suggestion) {
+            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+              : '';
+            var html = `
+              <div class="search-item">
+                <h3>${suggestion.title}</h3>
+                <div class="search-item-description">
+                  ${suggestion.description || ''}
+                </div>
+                <div class="search-item-preview">
+                  ${img}
+                </div>
+              </div>
+            `;
+            return html;
+          }
+        }
+      }]).on('autocomplete:selected', function(event, suggestion) {
+        window.location.href = offsetURL(suggestion.path);
+      });
+      // remove inline display style on autocompleter (we want to
+      // manage responsive display via css)
+      $('.algolia-autocomplete').css("display", "");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+});
+
+</script>
+
+<style type="text/css">
+
+.nav-search {
+  font-size: x-small;
+}
+
+/* Algolioa Autocomplete */
+
+.algolia-autocomplete {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: sub;
+  background-color: white;
+  color: black;
+  padding: 6px;
+  padding-top: 8px;
+  padding-bottom: 0;
+  border-radius: 6px;
+  border: 1px #0F2E3D solid;
+  width: 180px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-nav .algolia-autocomplete {
+    display: none;
+    visibility: hidden;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete {
+    display: inline-block;
+    visibility: visible;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+    margin-left: 0;
+    width: 400px;
+    max-height: 400px;
+  }
+}
+
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 90%;
+  outline: none;
+  border: none;
+}
+
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 550px;
+  max-height: 70vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-top: 3px;
+  margin-left: -150px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #999;
+  border-top: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+  overflow: hidden;
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+  font-size: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+  display: inline-block;
+  overflow: hidden;
+  height: 2.8em;
+  width: 80%;
+  margin-right: 4%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+  display: inline-block;
+  width: 15%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+  height: 3em;
+  width: auto;
+  display: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+  display: initial;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #eee;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+</style>
+
+
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+d-byline .byline {
+  grid-template-columns: 2fr 2fr;
+}
+
+d-byline .byline h3 {
+  margin-block-start: 1.5em;
+}
+
+d-byline .byline .authors-affiliations h3 {
+  margin-block-start: 0.5em;
+}
+
+.authors-affiliations .orcid-id {
+  width: 16px;
+  height:16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  padding-bottom: 2px;
+}
+
+d-title .dt-tags {
+  margin-top: 1em;
+  grid-column: text;
+}
+
+.dt-tags .dt-tag {
+  text-decoration: none;
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0em 0.4em;
+  margin-right: 0.5em;
+  margin-bottom: 0.4em;
+  font-size: 70%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+d-article table.gt_table td,
+d-article table.gt_table th {
+  border-bottom: none;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-top: 2.5rem;
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article h2 {
+  margin: 1rem 0 1.5rem 0;
+}
+
+d-article h3 {
+  margin-top: 1.5rem;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+/* Tweak code blocks */
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: auto;
+}
+
+d-article div.sourceCode {
+  background-color: white;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+d-article pre {
+  font-size: 12px;
+  color: black;
+  background: none;
+  margin-top: 0;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+d-article pre a {
+  border-bottom: none;
+}
+
+d-article pre a:hover {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+d-article details {
+  grid-column: text;
+  margin-bottom: 0.8em;
+}
+
+@media(min-width: 768px) {
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: visible !important;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+d-article pre {
+  font-size: 14px;
+}
+
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for d-contents */
+
+.d-contents {
+  grid-column: text;
+  color: rgba(0,0,0,0.8);
+  font-size: 0.9em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-left: 0.25em;
+  justify-self: start;
+}
+
+@media(min-width: 1000px) {
+  .d-contents.d-contents-float {
+    height: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
+    padding-right: 3em;
+    padding-left: 2em;
+  }
+}
+
+.d-contents nav h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.d-contents li {
+  list-style-type: none
+}
+
+.d-contents nav > ul {
+  padding-left: 0;
+}
+
+.d-contents ul {
+  padding-left: 1em
+}
+
+.d-contents nav ul li {
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+.d-contents nav a {
+  font-size: 13px;
+  border-bottom: none;
+  text-decoration: none
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.d-contents nav a:hover {
+  text-decoration: underline solid rgba(0, 0, 0, 0.6)
+}
+
+.d-contents nav > ul > li > a {
+  font-weight: 600;
+}
+
+.d-contents nav > ul > li > ul {
+  font-weight: inherit;
+}
+
+.d-contents nav > ul > li > ul > li {
+  margin-top: 0.2em;
+}
+
+
+.d-contents nav ul {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.d-article-with-toc h2:nth-child(2) {
+  margin-top: 0;
+}
+
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+/* Citations */
+
+d-article .citation {
+  color: inherit;
+  cursor: inherit;
+}
+
+div.hanging-indent{
+  margin-left: 1em; text-indent: -1em;
+}
+
+/* Citation hover box */
+
+.tippy-box[data-theme~=light-border] {
+  background-color: rgba(250, 250, 250, 0.95);
+}
+
+.tippy-content > p {
+  margin-bottom: 0;
+  padding: 2px;
+}
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Include appendix styles here so they can be overridden */
+
+d-appendix {
+  contain: layout style;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-top: 60px;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+d-appendix h3 {
+  grid-column: page-start / text-start;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+d-appendix h3 + * {
+  margin-top: 1em;
+}
+
+d-appendix ol {
+  padding: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  d-appendix ol {
+    padding: 0 0 0 30px;
+    margin-left: -30px;
+  }
+}
+
+d-appendix li {
+  margin-bottom: 1em;
+}
+
+d-appendix a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+d-appendix > * {
+  grid-column: text;
+}
+
+d-appendix > d-footnote-list,
+d-appendix > d-citation-list,
+d-appendix > distill-appendix {
+  grid-column: screen;
+}
+
+/* Include footnote styles here so they can be overridden */
+
+d-footnote-list {
+  contain: layout style;
+}
+
+d-footnote-list > * {
+  grid-column: text;
+}
+
+d-footnote-list a.footnote-backlink {
+  color: rgba(0,0,0,0.3);
+  padding-left: 0.5em;
+}
+
+
+
+/* Anchor.js */
+
+.anchorjs-link {
+  /*transition: all .25s linear; */
+  text-decoration: none;
+  border-bottom: none;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+/* Styles for listing layout (hide title) */
+.layout-listing d-title, .layout-listing .d-title {
+  display: none;
+}
+
+/* Styles for posts lists (not auto-injected) */
+
+
+.posts-with-sidebar {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.posts-list .description h2,
+.posts-list .description p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.posts-list .description h2 {
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.posts-list h2.post-tag {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 12px;
+}
+.posts-list {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.posts-list .post-preview {
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 24px 0;
+}
+
+.post-preview-last {
+  border-bottom: none !important;
+}
+
+.posts-list .posts-list-caption {
+  grid-column: screen;
+  font-weight: 400;
+}
+
+.posts-list .post-preview h2 {
+  margin: 0 0 6px 0;
+  line-height: 1.2em;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.posts-list .post-preview p {
+  margin: 0 0 12px 0;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+
+.posts-list .post-preview .thumbnail {
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  position: relative;
+  max-width: 500px;
+}
+.posts-list .post-preview img {
+  width: 100%;
+  display: block;
+}
+
+.posts-list .metadata {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin-bottom: 18px;
+}
+
+.posts-list .metadata > * {
+  display: inline-block;
+}
+
+.posts-list .metadata .publishedDate {
+  margin-right: 2em;
+}
+
+.posts-list .metadata .dt-authors {
+  display: block;
+  margin-top: 0.3em;
+  margin-right: 2em;
+}
+
+.posts-list .dt-tags {
+  display: block;
+  line-height: 1em;
+}
+
+.posts-list .dt-tags .dt-tag {
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0.3em 0.4em;
+  margin-right: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 60%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.posts-list img {
+  opacity: 1;
+}
+
+.posts-list img[data-src] {
+  opacity: 0;
+}
+
+.posts-more {
+  clear: both;
+}
+
+
+.posts-sidebar {
+  font-size: 16px;
+}
+
+.posts-sidebar h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.categories ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories li {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+.categories li>a {
+  border-bottom: none;
+}
+
+.categories li>a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.categories .active {
+  font-weight: 600;
+}
+
+.categories .category-count {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+@media(min-width: 768px) {
+  .posts-list .post-preview h2 {
+    font-size: 26px;
+  }
+  .posts-list .post-preview .thumbnail {
+    float: right;
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .posts-list .post-preview .description {
+    float: left;
+    width: 45%;
+  }
+  .posts-list .post-preview .metadata {
+    float: left;
+    width: 20%;
+    margin-top: 8px;
+  }
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+  .posts-with-sidebar .posts-list {
+    float: left;
+    width: 75%;
+  }
+  .posts-with-sidebar .posts-sidebar {
+    float: right;
+    width: 20%;
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.downlevel .posts-list .post-preview {
+  color: inherit;
+}
+
+
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // add anchors
+  if (window.anchors) {
+    window.anchors.options.placement = 'left';
+    window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+  }
+
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  // move refs into #references-listing
+  $('#references-listing').replaceWith($('#refs'));
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-contents a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('details, div.sourceCode, pre, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // remove code block used to force  highlighting css
+  $('.distill-force-highlighting-css').parent().remove();
+
+  // remove empty line numbers inserted by pandoc when using a
+  // custom syntax highlighting theme
+  $('code.sourceCode a:empty').remove();
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // article with toc class
+    $('.d-contents').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // add orcid ids
+    $('.authors-affiliations').find('.author').each(function(i, el) {
+      var orcid_id = front_matter.authors[i].orcidID;
+      if (orcid_id) {
+        var a = $('<a></a>');
+        a.attr('href', 'https://orcid.org/' + orcid_id);
+        var img = $('<img></img>');
+        img.addClass('orcid-id');
+        img.attr('alt', 'ORCID ID');
+        img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+        a.append(img);
+        $(this).append(a);
+      }
+    });
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // remove d-appendix and d-footnote-list local styles
+    $('d-appendix > style:first-child').remove();
+    $('d-footnote-list > style:first-child').remove();
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // hoverable references
+    $('span.citation[data-cites]').each(function() {
+      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      window.tippy(this, {
+        allowHTML: true,
+        content: refHtml,
+        maxWidth: 500,
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start'
+      });
+    });
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-contents').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="../../site_libs/plotly-binding-4.9.3/plotly.js"></script>
+  <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="../../site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="../../site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="../../site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="../../site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Survey calculation methods: part 1 ","description":"The tangential method in R","authors":[{"author":"Rigoberto Chandomi Vazquez","authorURL":"https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-01T00:00:00.000-05:00","citationText":"Vazquez, 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo">
+<img src="../../images/logo_fb.png" alt="Logo"/>
+</a>
+<a href="../../index.html" class="title">Chato Solutions</a>
+<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../blog.html">Blog</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Shiny Apps
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="../../app.html">RET (Reservoir Engineering Tools)</a>
+<a href="../../appPTA.html">PTA webapp</a>
+</div>
+</div>
+<a href="https://github.com/chatosolutions">
+<i class="fa fa-github" aria-hidden="true"></i>
+</a>
+<a href="https://twitter.com/ChatoSolutions">
+<i class="fa fa-twitter" aria-hidden="true"></i>
+</a>
+<a href="https://www.instagram.com/chatosolutions/">
+<i class="fab fa-instagram" aria-hidden="true"></i>
+</a>
+<a href="https://www.linkedin.com/company/chato-solutions/">
+<i class="fa fa-linkedin" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Survey calculation methods: part 1</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../blog.html#category:R" class="dt-tag">R</a>
+  <a href="../../blog.html#category:Drilling" class="dt-tag">Drilling</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>The tangential method in R</p></p>
+</div>
+
+<div class="d-byline">
+  Rigoberto Chandomi Vazquez <a href="https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/" class="uri">https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/</a> 
+  
+<br/>05-01-2022
+</div>
+
+<div class="d-article">
+<p>There are several methods of computing directional surveys, in this case two methods are rewired: Tangential angle and Average angle</p>
+<p>The tangential method uses the inclination and azimuth at the lower survey station assuming to be a straight line. The angles measured at the upper station are not used in the computing. This method is the most inaccurate when the trajectory is changing significantly between stations.</p>
+<p><img src="tang.png" style="width:100.0%" /></p>
+<p>Tangential calcularions:</p>
+<p><span class="math display">\[ \Delta North = \Delta MD * sin(I2) * cos(Az2) \]</span></p>
+<p><span class="math display">\[ \Delta East = \Delta MD * sin(I2) * sin(Az2) \]</span></p>
+<p><span class="math display">\[ \Delta TVD = \Delta MD * cos(I2)\]</span></p>
+<p>where $ MD = measured  depth  between  surveys  (m)$</p>
+<p>$ I2 = Inclination  (angle)  of  lower  survey  (°)$</p>
+<p>$ Az2 = azimuth  direction  of  lower  survey  (°)$</p>
+<p>R code</p>
+<p>First, loading the survey data from CSV file, in this case we have: MD in meters, Inclination and Azimuth in angles, using read.csv tha data is loaded in dataframe format.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>survey</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Survey.csv"</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  MD        INC        AZ
+1  0 0.00000000   0.00000
+2 15 0.03000000  86.60000
+3 30 0.06000000  86.60000
+4 45 0.01550349  96.85197
+5 60 0.03000000 256.00000
+6 75 0.02455922 247.22631</code></pre>
+</div>
+<p>For this method, two vectors are created, I2 and A2, to Inclination and azimuth of lower survey. With these vectors, just use the equation above to compute $ North$, $ East$ and $ TVD$.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>I2</span> <span class='op'>&lt;-</span> <span class='va'>survey</span><span class='op'>$</span><span class='va'>INC</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>:</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>A2</span> <span class='op'>&lt;-</span> <span class='va'>survey</span><span class='op'>$</span><span class='va'>AZ</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>:</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>)</span><span class='op'>)</span><span class='op'>]</span>
+
+<span class='va'>survey</span><span class='op'>$</span><span class='va'>TVD</span> <span class='op'>&lt;-</span> <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>$</span><span class='va'>MD</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/diff.html'>diff</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>$</span><span class='va'>MD</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span><span class='op'>(</span><span class='op'>(</span><span class='op'>(</span><span class='va'>I2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>*</span><span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>180</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>survey</span><span class='op'>$</span><span class='va'>DN</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/diff.html'>diff</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>$</span><span class='va'>MD</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='op'>(</span><span class='op'>(</span><span class='va'>I2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>*</span><span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>180</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span><span class='op'>(</span><span class='op'>(</span><span class='op'>(</span><span class='va'>A2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>*</span><span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>180</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>survey</span><span class='op'>$</span><span class='va'>DE</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/diff.html'>diff</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>$</span><span class='va'>MD</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='op'>(</span><span class='op'>(</span> <span class='va'>I2</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>*</span><span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>180</span><span class='op'>)</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='op'>(</span><span class='op'>(</span> <span class='va'>A2</span> <span class='op'>)</span><span class='op'>)</span><span class='op'>*</span><span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>180</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  MD        INC        AZ       TVD            DN          DE
+1  0 0.00000000   0.00000   0.00000  0.0000000000 0.000000000
+2 15 0.03000000  86.60000 -15.00000  0.0004657911 0.007840157
+3 30 0.06000000  86.60000 -29.99999  0.0013973733 0.023520469
+4 45 0.01550349  96.85197 -44.99999  0.0009131392 0.027550284
+5 60 0.03000000 256.00000 -59.99999 -0.0009869108 0.019929599
+6 75 0.02455922 247.22631 -74.99999 -0.0034757540 0.014001255</code></pre>
+</div>
+<p>Using Plotly package, the survey can be ploted in 3D</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://plotly-r.com'>plotly</a></span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/plotly/man/plot_ly.html'>plot_ly</a></span><span class='op'>(</span><span class='va'>survey</span>, x <span class='op'>=</span> <span class='op'>~</span><span class='va'>DE</span>, y <span class='op'>=</span> <span class='op'>~</span><span class='va'>DN</span>, z <span class='op'>=</span> <span class='op'>~</span><span class='va'>TVD</span>, type <span class='op'>=</span> <span class='st'>"scatter3d"</span> , mode <span class='op'>=</span> <span class='st'>"lines"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-506ee320965a214373d9" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-506ee320965a214373d9">{"x":{"visdat":{"3f784fe233cc":["function () ","plotlyVisDat"]},"cur_data":"3f784fe233cc","attrs":{"3f784fe233cc":{"x":{},"y":{},"z":{},"mode":"lines","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"DE"},"yaxis":{"title":"DN"},"zaxis":{"title":"TVD"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[0,0.00784015691657783,0.02352046860031,0.0275502835338405,0.0199295990683539,0.0140012553928306,0.00976525240192526,0.0180068862734252,0.0387261508321192,0.0451178291683049,0.0371818716223228,-0.0287955282552554,-0.155456750320327,-0.342796151559353,-0.615337632439012,-0.973060979905379,-1.41593966308761,-2.14975050468999,-2.95303833010404,-3.81914123504921,-4.74804376084462,-5.70085254700356,-6.67756171365364,-7.67482251973183,-8.69263210776042,-9.7151015019298,-10.7422242646601,-11.745432679316,-12.7247219678878,-13.7078813833847,-14.6949108584221,-15.6757885607428,-16.6505061336789,-17.6078897658343,-18.5479380902231,-19.5010051868212,-20.4670894548346,-21.3886122835965,-22.265565364001,-23.1086261142299,-23.9177822247593,-24.7421247326466,-25.5816522324909,-26.4623544284818,-27.3842246407316,-28.361848344964,-29.3952117753342,-30.4428318994406,-31.5047077519351,-32.5277020789369,-33.5118078689574,-34.4761086635635,-35.4206022757705,-36.3663950986616,-37.313487125034,-38.2663583993103,-39.2250058838465,-40.211841050477,-41.2268595892652,-42.2492124267775,-43.278898807675,-44.2973935802413,-45.3046955987113,-46.2657795921986,-47.1806262165704,-48.0947983749566,-49.0082958003692,-49.9648813329607,-50.964543362095,-52.005322567643,-53.0872057328619,-54.1226485665662,-55.1116394782784,-56.0706825500965,-56.9997739317404,-57.9219060165956,-58.8370781800998,-59.7518116832021,-60.6661053797869,-61.6101230420962,-62.5838574054364,-63.5650561800337,-64.5537188556225,-65.5054767004316,-66.4203233248033,-67.3564438688064,-68.3138322725373,-69.2777512258464,-70.2482005452171,-71.2184283017883,-72.1884341862488,-73.1790112210531,-74.1901542541939,-75.2067304130101,-76.2287258456202,-77.1801945859556,-78.0611150488963,-78.9337414784317,-79.7980734680831,-80.6699781917887,-81.5494554105108,-82.421785473773,-83.286968033724,-84.1599161176393,-85.0406290552688,-85.9194626454733,-86.7964157258777,-87.6918332673991,-88.6057138586482,-89.5227862389081,-90.4430501248989,-91.3727650216614,-92.3119303891991,-93.2684444281819,-94.2423050279491,-96.1900262274836,-97.1420105761532,-98.0721148596003,-99.002298124539,-99.9325600851242,-100.884756620731,-101.858885635707,-102.842847636915,-103.836640544695,-104.791126543821,-105.706298707325,-106.596010598141,-107.460259506052,-108.323963585709,-109.187119048471,-110.083150961446,-111.012053487241,-111.936143269284,-112.855419973867,-113.84273361354,-114.898054438093,-115.680434947628,-116.541580052744,-117.481414139703,-118.535423044642,-119.703429801416,-120.985238304732,-122.405137094897,-123.962833477224,-125.658006350231,-127.513061592176,-129.527452012324,-131.700583417361,-133.997966494092,-136.419224900136,-138.963961997192,-141.541886476517,-144.152937725559,-146.797054353382,-149.53472495883,-152.365576667656,-155.289223913813,-158.30692318602,-161.418204290903,-164.622582449786,-167.946067163979,-171.388099051714,-174.948098775087,-178.627377856118,-182.425331680687,-186.341336137204,-190.350151510011,-194.451337934968,-198.644445409022,-202.925476026908,-207.294011037043,-211.749623131663,-216.328945394252,-221.031062619044,-225.855035058944,-230.764677637076,-235.759498750967,-240.838998266222,-246.032881505468,-251.340185905148,-256.759927881772,-262.266902949446,-267.860486908675,-273.5400457431,-282.083588819239,-290.651302301669,-299.216800773378,-307.779856328563,-316.274829124126,-324.701445833225,-333.129116233582,-341.557840261018,-349.991667139456,-358.430362231438,-366.831987456215,-375.196306626685,-383.513009199666,-391.781835989883,-400.115295411535,-408.513051788358,-416.91775816866,-425.329198538246,-433.733293693556,-442.13004049855,-447.757394388011,-453.414088485609,-459.099939364748,-464.721338408425,-470.2777661792,-475.768709244337,-481.302430705314,-486.878775463716,-492.497587223671,-498.125160193592,-503.761190264499,-509.405372868455,-517.851099625348,-526.275975524108,-534.644477917806,-542.956420970717,-548.52606354675,-554.123496893839,-559.748161792983,-568.180925961502,-576.609455922317,-585.05385886239,-593.514120312466,-602.006055266118,-610.529605520575,-616.238476390318,-621.97253295219,-627.73045104782,-636.416323012218,-645.151037395799,-650.853835883092,-656.434934484242,-661.893006676767,-667.392543314129,-672.933396954242,-678.515419050106,-686.876940939508,-695.226737345621,-703.566197371119,-711.895314665139,-720.195158010789,-728.465513880145,-736.730123819826,-744.988742728219,-750.458949681938,-755.89315568946,-761.290901823902,-769.344997614754,-777.35647185818,-782.614540054832,-787.788772290711,-792.87826192595,-808.146730831667,-815.754793668584,-823.33645974293,-830.845216340885,-838.280742282327,-845.760630910493,-853.284687810579,-858.354366969931,-863.477483490978,-868.653831357652,-876.452321509791,-884.28472294136,-892.10291047824,-899.906874058356,-907.725061595236,-915.557463026806,-920.862899005812,-926.251646000423,-931.723171774007,-937.228488062026,-942.767411165463,-948.339756263582,-956.721642271851,-965.126865746672,-973.481596106457,-981.785551247065,-987.389706407247,-993.061647834674,-998.800971903563,-1004.61132922497,-1010.49208816913,-1016.44260945135,-1023.44544117518,-1030.5085070009,-1037.63148338197,-1041.31434915555,-1045.01638873139,-1050.96544964,-1056.89885851203,-1062.81630237531,-1070.09583754555,-1077.30845974557,-1084.45351899054,-1091.53037138597,-1096.95710930442,-1102.30555322441,-1107.57489959124,-1112.99192131888,-1118.36816057535,-1123.70335452028,-1129.09382130595,-1134.53928881353,-1140.0394838461,-1145.38961709044,-1150.77907730117,-1156.20758721602,-1164.70532596325,-1173.26695183723,-1181.82934260452,-1190.39223423901,-1196.17605220155,-1202.03454753424,-1207.96716904463,-1213.94944932024,-1219.98111056531,-1226.06187456804,-1231.77221431004,-1237.53118618025,-1243.33848072452,-1258.82459950922],"y":[0,0.000465791147560018,0.00139737331498077,0.000913139220468162,-0.000986910817609667,-0.0034757539759536,-0.00655339029760425,-0.0065624310614288,-0.00350287625991682,-0.0397260358673952,-0.115231628253107,-0.137779264119253,-0.132536469786621,-0.0995034787984123,-0.0540961139652522,0.00368225750335132,0.0738273498708366,0.182884716077627,0.295779457567586,0.401043562184482,0.498675151794563,0.624839103665767,0.779534638385484,0.919368257704203,1.04433956105306,1.20665194301837,1.40630438316027,1.58368311930449,1.73878730519075,1.89450445896403,2.05083456995165,2.25051266840786,2.49353705420416,2.74099201834239,2.99287720770857,3.23033906558578,3.45337719301689,3.68238672439724,3.9173655940916,4.1061944350486,4.24887048894005,4.37920257442378,4.4971904700075,4.61278057074661,4.72597199996717,4.84600909721962,4.97289017227075,5.10152174920219,5.23190370948412,5.3575116187312,5.47834461604089,5.58839637926651,5.68766665809085,5.78707348946058,5.88661687261867,6.01230618753346,6.16414103284025,6.32954639310757,6.50852154741522,6.69808457380936,6.89823533084312,7.08711807670571,7.26473260028406,7.39356051358566,7.47359922208315,7.54555756826068,7.60943553093839,7.70274661060178,7.82548967390035,7.98224479635111,8.17300998835347,8.38255702936329,8.6108835721899,8.84087155435548,9.07252005299956,9.29398644887733,9.50527059083402,9.69977312963325,9.87749382101807,10.0261345114184,10.1456940576571,10.2574301779185,10.3613428123719,10.4533187930626,10.5333575015601,10.5817326504943,10.5984439272429,10.6152691951584,10.6322084510376,10.6576147589754,10.6914881108723,10.752656722541,10.841120275144,10.984680923042,11.1833367111701,11.3924860483298,11.6121241880185,11.8377418391623,12.0693388977818,12.3029650643755,12.5386202748937,12.7804914823657,13.0285785892707,13.287252725254,13.556513691845,13.8086337762614,14.0436126459557,14.2750302752631,14.5028862979164,14.723044172325,14.9355038310419,15.141546601573,15.3411723629364,15.5268443979528,15.6985622971407,16.0419980955164,16.1932161647251,16.323933797081,16.4629621443613,16.6103011643438,16.7611142797148,16.9154011585557,17.0891316672527,17.2823054398858,17.4845351318483,17.695819273805,17.9012254486606,18.1007530307123,18.268872388146,18.4055827830287,18.5227541563184,18.6203857459285,18.7256380538181,18.8385110403387,18.9975167229401,19.2026503110561,19.3896173864232,19.6267793946984,19.9141155105622,20.2612479278061,20.6681183642818,21.1346585055182,21.5658784308543,21.9616892468523,22.3220093641749,22.6256815590943,22.8726162564489,23.0627406187419,23.2637355937321,23.4755682557278,23.6982039033741,23.9548528715407,24.24550912335,24.5701658224734,24.958498701612,25.4104548632589,25.9259727548306,26.5163435476928,27.1814752551309,27.9212642443546,28.6885511485539,29.4832068242718,30.3050975208142,31.1306179791196,31.9596325488136,32.7920049915751,33.5934594222907,34.3639078939284,35.1032658746143,35.8581270777868,36.628417666243,37.4140622940956,38.2215203623489,39.0506304955337,39.9012269908821,40.7669294430418,41.6476511692331,42.5433039822681,43.4591257319968,44.3949466924931,45.3505934314501,46.3216217179698,47.30792148884,48.3093809498702,49.8158381050385,51.3265571549707,52.9141824973303,54.5786718833105,56.2299273214285,57.8678956823283,59.5060688600606,61.14444684215,62.8605097188324,64.654209732566,66.5166135303971,68.4476687672802,70.4440525354669,72.5057026049278,74.5059553307125,76.4447301549427,78.3080949305496,80.0960017742013,81.8823473443617,83.6671309744448,84.8979692004035,86.1697499903007,87.4824320977772,88.7467141622078,89.9624793568307,91.1296153350821,92.3058441420669,93.4911328105997,94.6854481189667,95.95081224671,97.2871568062077,98.6944095825342,100.722403565806,102.66743942501,104.599460435073,106.518423692438,107.702004701863,108.789739627298,109.781519806461,111.268443651323,112.754620891124,114.243596965433,115.735369322929,117.232726573679,118.735658454964,119.882440875658,121.173786300893,122.609396520211,124.775027630046,126.95283652271,128.374703880164,129.766228048059,131.127078287195,132.498266773552,133.879756745687,135.271511166676,137.43401528506,139.671336489042,141.905888068186,144.137668320783,146.439331247891,148.810817632013,151.103039952799,153.3159302199,154.714942301764,156.037588129597,157.283756015811,159.143190542197,160.992785109025,162.144789771905,163.215534196242,164.204830764893,167.172720470846,168.583139913167,169.919992200796,171.311108013785,172.756427844884,174.142452886253,175.469147122124,176.363068341453,177.266412009427,178.179141799855,179.554226022466,180.935289718591,182.313847121582,183.689896457223,185.068453860213,186.449517556338,187.352280394318,188.237007779184,189.103612326555,190.00889759292,190.952833367682,191.935388154299,193.41334080678,194.895408484275,196.443531141063,198.05765650836,199.146993920852,200.249507648926,201.365119235678,202.530596244387,203.74581197045,205.010634314343,206.455973158788,207.870958164967,209.2555245159,209.904767993178,210.491113459457,211.504358332398,212.586126587468,213.736361154917,215.248595542217,216.8450506876,218.525582723115,220.290040197284,221.610647723727,222.879309024137,224.095833488261,225.313883999554,226.489953240797,227.623983721573,228.769762807331,229.927232657429,231.096335202066,232.266678348426,233.478516226089,234.731786490638,236.693644063867,238.670251142486,240.72607072034,242.861039390129,244.266597553608,245.654268716641,247.023922313376,248.405040539411,249.797559260544,251.201414246516,252.519750053464,253.849313471883,255.19003305865,258.765285290029],"z":[-0,-14.9999979438325,-29.9999897191629,-44.9999891700332,-59.9999871138656,-74.9999857358789,-89.9999848220267,-104.999982557873,-119.999967936239,-134.999922837143,-149.999730700116,-159.999487626503,-169.998684066614,-179.996874541407,-189.993056778262,-199.986489405066,-209.976431253646,-224.958074292366,-239.936124347259,-254.910729024055,-269.881621053933,-284.850797319656,-299.818165441518,-314.784324516029,-329.749231659605,-344.713462713309,-359.676923467206,-374.642287133376,-389.609482434461,-404.576417649519,-419.543091752733,-434.509654737937,-449.47597909634,-464.443349694464,-479.411745166231,-494.379553121153,-509.346748422237,-524.316663262029,-539.289162660111,-554.264261732913,-569.241741825787,-584.218506261979,-599.194529513614,-614.168206502603,-629.139423654596,-644.107050152749,-659.070875239055,-674.033694024063,-688.995492720019,-703.960041001209,-718.927236302293,-733.895803788427,-748.865709507176,-763.835532292301,-778.8052720298,-793.77444831077,-808.743013411679,-823.709602783366,-838.674151064556,-853.63806968685,-868.601347590821,-883.565537903249,-898.530623794236,-913.499248344481,-928.47111026807,-943.443054405732,-958.41507638206,-973.384252617285,-988.35040141943,-1003.31342940433,-1018.2731465627,-1033.23589858817,-1048.20151798619,-1063.16906093466,-1078.13846734165,-1093.1084581584,-1108.07902324201,-1123.04984257098,-1138.02089738994,-1152.99042432296,-1167.95830817154,-1182.92576500308,-1197.89278702746,-1212.86227925078,-1227.83414117436,-1242.80482379648,-1257.77423020347,-1272.74321738236,-1287.71178248327,-1302.6803499705,-1317.64891507141,-1332.61604624405,-1347.58166564207,-1362.54648983929,-1377.5103149256,-1392.47864695662,-1407.4511463547,-1422.42404252712,-1437.39732850629,-1452.37014390511,-1467.34248461869,-1482.31514432162,-1497.28811703666,-1512.26045985047,-1527.23216126525,-1542.2042715702,-1557.17677096829,-1572.14823293121,-1587.11863385763,-1602.08895478805,-1617.05919110127,-1632.02893313603,-1646.99817219377,-1661.96649229954,-1676.9338604214,-1706.86859666512,-1721.83759325459,-1736.8081583382,-1751.77864364136,-1766.74904456778,-1781.71803174668,-1796.68557223338,-1811.65225645169,-1826.61805277364,-1841.58628779414,-1856.55685287775,-1871.52903445074,-1886.50278690526,-1901.47695636952,-1916.45147716036,-1931.42423234036,-1946.39512437023,-1961.3662626044,-1976.33764163337,-1991.30426880752,-2006.26569314373,-2016.23328683785,-2026.19331611942,-2036.14490643683,-2046.08314392208,-2056.00635996649,-2065.91288848346,-2075.80217242122,-2085.67217322053,-2095.52085629715,-2105.34259510692,-2115.13449249662,-2124.89366011601,-2134.62410882194,-2144.32424462792,-2153.99247851397,-2163.651072443,-2173.29979931851,-2182.93843227585,-2192.54854971691,-2202.12884273073,-2211.67800646812,-2221.19351766981,-2230.67389370128,-2240.11765740366,-2249.51796166262,-2258.87322429073,-2268.1818706828,-2277.44369671317,-2286.65718039686,-2295.82080769248,-2304.94698269093,-2314.0347040258,-2323.08297455046,-2332.08869281236,-2341.05097791575,-2349.9689532118,-2358.82207803208,-2367.60858302504,-2376.32671215354,-2384.99538962011,-2393.61374742663,-2402.18092261528,-2410.67708924617,-2419.10067275552,-2427.45011203113,-2435.74048775668,-2443.97086024236,-2452.14029659955,-2464.37706326995,-2476.59639277837,-2488.80752219802,-2501.0101266185,-2513.26201596997,-2525.56279604632,-2537.86282695127,-2550.16210859115,-2562.44729041267,-2574.7180306269,-2587.00396346394,-2599.30474354029,-2611.62736136941,-2623.97143292237,-2636.28209671847,-2648.55885687808,-2660.84253639091,-2673.13281954579,-2685.42835345549,-2697.72913353184,-2705.90335676492,-2714.05101811703,-2722.17185338595,-2730.34506962274,-2738.56991159202,-2746.84561928766,-2755.0914917452,-2763.30729784732,-2771.49280732141,-2779.66160625959,-2787.81325322558,-2795.94730771007,-2808.17665519682,-2820.43382867185,-2832.73161150061,-2845.06973059155,-2853.29032774561,-2861.50528804112,-2869.71379075773,-2882.02953458251,-2894.34826665654,-2906.65578505936,-2918.95206870239,-2931.22581963707,-2943.47695374049,-2951.60675591964,-2959.69706013753,-2967.74599811109,-2979.78201365255,-2991.78042659194,-2999.87093848126,-3008.05109733634,-3016.31895888379,-3024.55758370285,-3032.76675091979,-3040.94624044867,-3053.21035589296,-3065.46903827757,-3077.73525960784,-3090.00901054252,-3102.289684311,-3114.57696497533,-3126.88313982282,-3139.20784389195,-3147.46130383784,-3155.7510573373,-3164.07640431311,-3176.59335458998,-3189.13908216495,-3197.56675112476,-3206.05679394838,-3214.60772299451,-3240.26051013292,-3253.11072790797,-3265.98438960534,-3278.89498103825,-3291.84194997155,-3304.7698345895,-3317.6782988734,-3326.25146970308,-3334.79182375483,-3343.29901759845,-3356.03843260573,-3368.75637862236,-3381.48333910493,-3394.21929767373,-3406.94625815629,-3419.66420417293,-3428.09257105691,-3436.46984169134,-3444.79518866715,-3453.09410131612,-3461.36630272248,-3469.61151686153,-3481.96302053118,-3494.29816113588,-3506.65946352902,-3519.04651032483,-3527.25667408339,-3535.41838615398,-3543.53106573719,-3551.58596555902,-3559.58220998874,-3567.51892977138,-3576.73752306761,-3585.91477832882,-3595.0502751617,-3599.74228780032,-3604.42748811334,-3611.97907470305,-3619.53346866652,-3627.09027152578,-3636.50948141106,-3645.966193946,-3655.45955691513,-3664.98871480002,-3672.46652304939,-3680.00945150558,-3687.61636691088,-3695.52943707632,-3703.47659657846,-3711.45745689096,-3719.39940306354,-3727.30203419029,-3735.16495379643,-3742.72256427042,-3750.24561492496,-3757.73371873281,-3769.31774010047,-3780.85210557286,-3792.3720478562,-3803.87721172444,-3811.49405535643,-3819.05691412383,-3826.56507647745,-3834.03162092845,-3841.45620076784,-3848.83847353511,-3855.6688476633,-3862.45607862405,-3869.19980171043,-3887.18306327412],"mode":"lines","type":"scatter3d","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>We can define a Kelly bushing and head values, as a servey start point, and computing the geographic coordinates and TVDSS</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>X</span> <span class='op'>&lt;-</span> <span class='fl'>550000</span>
+<span class='va'>Y</span> <span class='op'>&lt;-</span> <span class='fl'>2500000</span>
+<span class='va'>KB</span> <span class='op'>&lt;-</span> <span class='fl'>33</span>
+
+<span class='va'>survey</span><span class='op'>$</span><span class='va'>TVDSS</span> <span class='op'>&lt;-</span> <span class='va'>survey</span><span class='op'>$</span><span class='va'>TVD</span> <span class='op'>+</span> <span class='va'>KB</span>
+<span class='va'>survey</span><span class='op'>$</span><span class='va'>X</span> <span class='op'>&lt;-</span> <span class='va'>X</span> <span class='op'>+</span> <span class='va'>survey</span><span class='op'>$</span><span class='va'>DN</span>
+<span class='va'>survey</span><span class='op'>$</span><span class='va'>Y</span> <span class='op'>&lt;-</span> <span class='va'>Y</span> <span class='op'>+</span> <span class='va'>survey</span><span class='op'>$</span><span class='va'>DE</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>survey</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  MD        INC        AZ       TVD            DN          DE
+1  0 0.00000000   0.00000   0.00000  0.0000000000 0.000000000
+2 15 0.03000000  86.60000 -15.00000  0.0004657911 0.007840157
+3 30 0.06000000  86.60000 -29.99999  0.0013973733 0.023520469
+4 45 0.01550349  96.85197 -44.99999  0.0009131392 0.027550284
+5 60 0.03000000 256.00000 -59.99999 -0.0009869108 0.019929599
+6 75 0.02455922 247.22631 -74.99999 -0.0034757540 0.014001255
+      TVDSS      X       Y
+1  33.00000 550000 2500000
+2  18.00000 550000 2500000
+3   3.00001 550000 2500000
+4 -11.99999 550000 2500000
+5 -26.99999 550000 2500000
+6 -41.99999 550000 2500000</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/plotly/man/plot_ly.html'>plot_ly</a></span><span class='op'>(</span><span class='va'>survey</span>, x <span class='op'>=</span> <span class='op'>~</span><span class='va'>X</span>, y <span class='op'>=</span> <span class='op'>~</span><span class='va'>Y</span>, z <span class='op'>=</span> <span class='op'>~</span><span class='va'>TVDSS</span>, type <span class='op'>=</span> <span class='st'>"scatter3d"</span> , mode <span class='op'>=</span> <span class='st'>"lines"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-8448699709504b4b19bc" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8448699709504b4b19bc">{"x":{"visdat":{"3f783f592bf1":["function () ","plotlyVisDat"]},"cur_data":"3f783f592bf1","attrs":{"3f783f592bf1":{"x":{},"y":{},"z":{},"mode":"lines","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"X"},"yaxis":{"title":"Y"},"zaxis":{"title":"TVDSS"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[550000,550000.000465791,550000.001397373,550000.000913139,549999.999013089,549999.996524246,549999.99344661,549999.993437569,549999.996497124,549999.960273964,549999.884768372,549999.862220736,549999.86746353,549999.900496521,549999.945903886,550000.003682257,550000.07382735,550000.182884716,550000.295779458,550000.401043562,550000.498675152,550000.624839104,550000.779534638,550000.919368258,550001.044339561,550001.206651943,550001.406304383,550001.583683119,550001.738787305,550001.894504459,550002.05083457,550002.250512668,550002.493537054,550002.740992018,550002.992877208,550003.230339066,550003.453377193,550003.682386724,550003.917365594,550004.106194435,550004.248870489,550004.379202574,550004.49719047,550004.612780571,550004.725972,550004.846009097,550004.972890172,550005.101521749,550005.231903709,550005.357511619,550005.478344616,550005.588396379,550005.687666658,550005.78707349,550005.886616873,550006.012306188,550006.164141033,550006.329546393,550006.508521547,550006.698084574,550006.898235331,550007.087118077,550007.2647326,550007.393560514,550007.473599222,550007.545557568,550007.609435531,550007.702746611,550007.825489674,550007.982244796,550008.173009988,550008.382557029,550008.610883572,550008.840871554,550009.072520053,550009.293986449,550009.505270591,550009.69977313,550009.877493821,550010.026134511,550010.145694058,550010.257430178,550010.361342812,550010.453318793,550010.533357502,550010.581732651,550010.598443927,550010.615269195,550010.632208451,550010.657614759,550010.691488111,550010.752656723,550010.841120275,550010.984680923,550011.183336711,550011.392486048,550011.612124188,550011.837741839,550012.069338898,550012.302965064,550012.538620275,550012.780491482,550013.028578589,550013.287252725,550013.556513692,550013.808633776,550014.043612646,550014.275030275,550014.502886298,550014.723044172,550014.935503831,550015.141546602,550015.341172363,550015.526844398,550015.698562297,550016.041998095,550016.193216165,550016.323933797,550016.462962144,550016.610301164,550016.76111428,550016.915401159,550017.089131667,550017.28230544,550017.484535132,550017.695819274,550017.901225449,550018.100753031,550018.268872388,550018.405582783,550018.522754156,550018.620385746,550018.725638054,550018.83851104,550018.997516723,550019.202650311,550019.389617386,550019.626779395,550019.914115511,550020.261247928,550020.668118364,550021.134658506,550021.565878431,550021.961689247,550022.322009364,550022.625681559,550022.872616256,550023.062740619,550023.263735594,550023.475568256,550023.698203903,550023.954852872,550024.245509123,550024.570165823,550024.958498702,550025.410454863,550025.925972755,550026.516343548,550027.181475255,550027.921264244,550028.688551149,550029.483206824,550030.305097521,550031.130617979,550031.959632549,550032.792004992,550033.593459422,550034.363907894,550035.103265875,550035.858127078,550036.628417666,550037.414062294,550038.221520362,550039.050630496,550039.901226991,550040.766929443,550041.647651169,550042.543303982,550043.459125732,550044.394946693,550045.350593432,550046.321621718,550047.307921489,550048.30938095,550049.815838105,550051.326557155,550052.914182497,550054.578671883,550056.229927321,550057.867895682,550059.50606886,550061.144446842,550062.860509719,550064.654209733,550066.51661353,550068.447668767,550070.444052535,550072.505702605,550074.505955331,550076.444730155,550078.308094931,550080.096001774,550081.882347344,550083.667130974,550084.8979692,550086.16974999,550087.482432098,550088.746714162,550089.962479357,550091.129615335,550092.305844142,550093.491132811,550094.685448119,550095.950812247,550097.287156806,550098.694409583,550100.722403566,550102.667439425,550104.599460435,550106.518423692,550107.702004702,550108.789739627,550109.781519806,550111.268443651,550112.754620891,550114.243596965,550115.735369323,550117.232726574,550118.735658455,550119.882440876,550121.173786301,550122.60939652,550124.77502763,550126.952836523,550128.37470388,550129.766228048,550131.127078287,550132.498266774,550133.879756746,550135.271511167,550137.434015285,550139.671336489,550141.905888068,550144.137668321,550146.439331248,550148.810817632,550151.103039953,550153.31593022,550154.714942302,550156.03758813,550157.283756016,550159.143190542,550160.992785109,550162.144789772,550163.215534196,550164.204830765,550167.172720471,550168.583139913,550169.919992201,550171.311108014,550172.756427845,550174.142452886,550175.469147122,550176.363068342,550177.266412009,550178.1791418,550179.554226022,550180.935289719,550182.313847122,550183.689896457,550185.06845386,550186.449517556,550187.352280394,550188.237007779,550189.103612327,550190.008897593,550190.952833368,550191.935388154,550193.413340807,550194.895408484,550196.443531141,550198.057656508,550199.146993921,550200.249507649,550201.365119236,550202.530596244,550203.74581197,550205.010634314,550206.455973159,550207.870958165,550209.255524516,550209.904767993,550210.491113459,550211.504358332,550212.586126587,550213.736361155,550215.248595542,550216.845050688,550218.525582723,550220.290040197,550221.610647724,550222.879309024,550224.095833488,550225.313884,550226.489953241,550227.623983722,550228.769762807,550229.927232657,550231.096335202,550232.266678348,550233.478516226,550234.731786491,550236.693644064,550238.670251142,550240.72607072,550242.86103939,550244.266597554,550245.654268717,550247.023922313,550248.405040539,550249.797559261,550251.201414246,550252.519750053,550253.849313472,550255.190033059,550258.76528529],"y":[2500000,2500000.00784016,2500000.02352047,2500000.02755028,2500000.0199296,2500000.01400126,2500000.00976525,2500000.01800689,2500000.03872615,2500000.04511783,2500000.03718187,2499999.97120447,2499999.84454325,2499999.65720385,2499999.38466237,2499999.02693902,2499998.58406034,2499997.8502495,2499997.04696167,2499996.18085876,2499995.25195624,2499994.29914745,2499993.32243829,2499992.32517748,2499991.30736789,2499990.2848985,2499989.25777574,2499988.25456732,2499987.27527803,2499986.29211862,2499985.30508914,2499984.32421144,2499983.34949387,2499982.39211023,2499981.45206191,2499980.49899481,2499979.53291055,2499978.61138772,2499977.73443464,2499976.89137389,2499976.08221778,2499975.25787527,2499974.41834777,2499973.53764557,2499972.61577536,2499971.63815165,2499970.60478822,2499969.5571681,2499968.49529225,2499967.47229792,2499966.48819213,2499965.52389134,2499964.57939772,2499963.6336049,2499962.68651287,2499961.7336416,2499960.77499412,2499959.78815895,2499958.77314041,2499957.75078757,2499956.72110119,2499955.70260642,2499954.6953044,2499953.73422041,2499952.81937378,2499951.90520163,2499950.9917042,2499950.03511867,2499949.03545664,2499947.99467743,2499946.91279427,2499945.87735143,2499944.88836052,2499943.92931745,2499943.00022607,2499942.07809398,2499941.16292182,2499940.24818832,2499939.33389462,2499938.38987696,2499937.41614259,2499936.43494382,2499935.44628114,2499934.4945233,2499933.57967668,2499932.64355613,2499931.68616773,2499930.72224877,2499929.75179945,2499928.7815717,2499927.81156581,2499926.82098878,2499925.80984575,2499924.79326959,2499923.77127415,2499922.81980541,2499921.93888495,2499921.06625852,2499920.20192653,2499919.33002181,2499918.45054459,2499917.57821453,2499916.71303197,2499915.84008388,2499914.95937094,2499914.08053735,2499913.20358427,2499912.30816673,2499911.39428614,2499910.47721376,2499909.55694988,2499908.62723498,2499907.68806961,2499906.73155557,2499905.75769497,2499903.80997377,2499902.85798942,2499901.92788514,2499900.99770188,2499900.06743991,2499899.11524338,2499898.14111436,2499897.15715236,2499896.16335946,2499895.20887346,2499894.29370129,2499893.4039894,2499892.53974049,2499891.67603641,2499890.81288095,2499889.91684904,2499888.98794651,2499888.06385673,2499887.14458003,2499886.15726639,2499885.10194556,2499884.31956505,2499883.45841995,2499882.51858586,2499881.46457696,2499880.2965702,2499879.0147617,2499877.59486291,2499876.03716652,2499874.34199365,2499872.48693841,2499870.47254799,2499868.29941658,2499866.00203351,2499863.5807751,2499861.036038,2499858.45811352,2499855.84706227,2499853.20294565,2499850.46527504,2499847.63442333,2499844.71077609,2499841.69307681,2499838.58179571,2499835.37741755,2499832.05393284,2499828.61190095,2499825.05190123,2499821.37262214,2499817.57466832,2499813.65866386,2499809.64984849,2499805.54866207,2499801.35555459,2499797.07452397,2499792.70598896,2499788.25037687,2499783.67105461,2499778.96893738,2499774.14496494,2499769.23532236,2499764.24050125,2499759.16100173,2499753.96711849,2499748.65981409,2499743.24007212,2499737.73309705,2499732.13951309,2499726.45995426,2499717.91641118,2499709.3486977,2499700.78319923,2499692.22014367,2499683.72517088,2499675.29855417,2499666.87088377,2499658.44215974,2499650.00833286,2499641.56963777,2499633.16801254,2499624.80369337,2499616.4869908,2499608.21816401,2499599.88470459,2499591.48694821,2499583.08224183,2499574.67080146,2499566.26670631,2499557.8699595,2499552.24260561,2499546.58591151,2499540.90006064,2499535.27866159,2499529.72223382,2499524.23129076,2499518.69756929,2499513.12122454,2499507.50241278,2499501.87483981,2499496.23880974,2499490.59462713,2499482.14890037,2499473.72402448,2499465.35552208,2499457.04357903,2499451.47393645,2499445.87650311,2499440.25183821,2499431.81907404,2499423.39054408,2499414.94614114,2499406.48587969,2499397.99394473,2499389.47039448,2499383.76152361,2499378.02746705,2499372.26954895,2499363.58367699,2499354.8489626,2499349.14616412,2499343.56506552,2499338.10699332,2499332.60745669,2499327.06660305,2499321.48458095,2499313.12305906,2499304.77326265,2499296.43380263,2499288.10468533,2499279.80484199,2499271.53448612,2499263.26987618,2499255.01125727,2499249.54105032,2499244.10684431,2499238.70909818,2499230.65500239,2499222.64352814,2499217.38545995,2499212.21122771,2499207.12173807,2499191.85326917,2499184.24520633,2499176.66354026,2499169.15478366,2499161.71925772,2499154.23936909,2499146.71531219,2499141.64563303,2499136.52251651,2499131.34616864,2499123.54767849,2499115.71527706,2499107.89708952,2499100.09312594,2499092.2749384,2499084.44253697,2499079.13710099,2499073.748354,2499068.27682823,2499062.77151194,2499057.23258883,2499051.66024374,2499043.27835773,2499034.87313425,2499026.51840389,2499018.21444875,2499012.61029359,2499006.93835217,2499001.1990281,2498995.38867078,2498989.50791183,2498983.55739055,2498976.55455882,2498969.491493,2498962.36851662,2498958.68565084,2498954.98361127,2498949.03455036,2498943.10114149,2498937.18369762,2498929.90416245,2498922.69154025,2498915.54648101,2498908.46962861,2498903.0428907,2498897.69444678,2498892.42510041,2498887.00807868,2498881.63183942,2498876.29664548,2498870.90617869,2498865.46071119,2498859.96051615,2498854.61038291,2498849.2209227,2498843.79241278,2498835.29467404,2498826.73304816,2498818.1706574,2498809.60776576,2498803.8239478,2498797.96545247,2498792.03283096,2498786.05055068,2498780.01888943,2498773.93812543,2498768.22778569,2498762.46881382,2498756.66151928,2498741.17540049],"z":[33,18.0000020561675,3.00001028083712,-11.9999891700332,-26.9999871138656,-41.9999857358789,-56.9999848220267,-71.9999825578728,-86.999967936239,-101.999922837143,-116.999730700116,-126.999487626503,-136.998684066614,-146.996874541407,-156.993056778262,-166.986489405066,-176.976431253646,-191.958074292366,-206.936124347259,-221.910729024055,-236.881621053933,-251.850797319656,-266.818165441518,-281.784324516029,-296.749231659605,-311.713462713309,-326.676923467206,-341.642287133376,-356.609482434461,-371.576417649519,-386.543091752733,-401.509654737937,-416.47597909634,-431.443349694464,-446.411745166231,-461.379553121153,-476.346748422237,-491.316663262029,-506.289162660111,-521.264261732913,-536.241741825787,-551.218506261979,-566.194529513614,-581.168206502603,-596.139423654596,-611.107050152749,-626.070875239055,-641.033694024063,-655.995492720019,-670.960041001209,-685.927236302293,-700.895803788427,-715.865709507176,-730.835532292301,-745.8052720298,-760.77444831077,-775.743013411679,-790.709602783366,-805.674151064556,-820.63806968685,-835.601347590821,-850.565537903249,-865.530623794236,-880.499248344481,-895.47111026807,-910.443054405732,-925.41507638206,-940.384252617285,-955.35040141943,-970.313429404329,-985.273146562696,-1000.23589858817,-1015.20151798619,-1030.16906093466,-1045.13846734165,-1060.1084581584,-1075.07902324201,-1090.04984257098,-1105.02089738994,-1119.99042432296,-1134.95830817154,-1149.92576500308,-1164.89278702746,-1179.86227925078,-1194.83414117436,-1209.80482379648,-1224.77423020347,-1239.74321738236,-1254.71178248327,-1269.6803499705,-1284.64891507141,-1299.61604624405,-1314.58166564207,-1329.54648983929,-1344.5103149256,-1359.47864695662,-1374.4511463547,-1389.42404252712,-1404.39732850629,-1419.37014390511,-1434.34248461869,-1449.31514432162,-1464.28811703666,-1479.26045985047,-1494.23216126525,-1509.2042715702,-1524.17677096829,-1539.14823293121,-1554.11863385763,-1569.08895478805,-1584.05919110127,-1599.02893313603,-1613.99817219377,-1628.96649229954,-1643.9338604214,-1673.86859666512,-1688.83759325459,-1703.8081583382,-1718.77864364136,-1733.74904456778,-1748.71803174668,-1763.68557223338,-1778.65225645169,-1793.61805277364,-1808.58628779414,-1823.55685287775,-1838.52903445074,-1853.50278690526,-1868.47695636952,-1883.45147716036,-1898.42423234036,-1913.39512437023,-1928.3662626044,-1943.33764163337,-1958.30426880752,-1973.26569314373,-1983.23328683785,-1993.19331611942,-2003.14490643683,-2013.08314392208,-2023.00635996649,-2032.91288848346,-2042.80217242122,-2052.67217322053,-2062.52085629715,-2072.34259510692,-2082.13449249662,-2091.89366011601,-2101.62410882194,-2111.32424462792,-2120.99247851397,-2130.651072443,-2140.29979931851,-2149.93843227585,-2159.54854971691,-2169.12884273073,-2178.67800646812,-2188.19351766981,-2197.67389370128,-2207.11765740366,-2216.51796166262,-2225.87322429073,-2235.1818706828,-2244.44369671317,-2253.65718039686,-2262.82080769248,-2271.94698269093,-2281.0347040258,-2290.08297455046,-2299.08869281236,-2308.05097791575,-2316.9689532118,-2325.82207803208,-2334.60858302504,-2343.32671215354,-2351.99538962011,-2360.61374742663,-2369.18092261528,-2377.67708924617,-2386.10067275552,-2394.45011203113,-2402.74048775668,-2410.97086024236,-2419.14029659955,-2431.37706326995,-2443.59639277837,-2455.80752219802,-2468.0101266185,-2480.26201596997,-2492.56279604632,-2504.86282695127,-2517.16210859115,-2529.44729041267,-2541.7180306269,-2554.00396346394,-2566.30474354029,-2578.62736136941,-2590.97143292237,-2603.28209671847,-2615.55885687808,-2627.84253639091,-2640.13281954579,-2652.42835345549,-2664.72913353184,-2672.90335676492,-2681.05101811703,-2689.17185338595,-2697.34506962274,-2705.56991159202,-2713.84561928766,-2722.0914917452,-2730.30729784732,-2738.49280732141,-2746.66160625959,-2754.81325322558,-2762.94730771007,-2775.17665519682,-2787.43382867185,-2799.73161150061,-2812.06973059155,-2820.29032774561,-2828.50528804112,-2836.71379075773,-2849.02953458251,-2861.34826665654,-2873.65578505936,-2885.95206870239,-2898.22581963707,-2910.47695374049,-2918.60675591964,-2926.69706013753,-2934.74599811109,-2946.78201365255,-2958.78042659194,-2966.87093848126,-2975.05109733634,-2983.31895888379,-2991.55758370285,-2999.76675091979,-3007.94624044867,-3020.21035589296,-3032.46903827757,-3044.73525960784,-3057.00901054252,-3069.289684311,-3081.57696497533,-3093.88313982282,-3106.20784389195,-3114.46130383784,-3122.7510573373,-3131.07640431311,-3143.59335458998,-3156.13908216495,-3164.56675112476,-3173.05679394838,-3181.60772299451,-3207.26051013292,-3220.11072790797,-3232.98438960534,-3245.89498103825,-3258.84194997155,-3271.7698345895,-3284.6782988734,-3293.25146970308,-3301.79182375483,-3310.29901759845,-3323.03843260573,-3335.75637862236,-3348.48333910493,-3361.21929767373,-3373.94625815629,-3386.66420417293,-3395.09257105691,-3403.46984169134,-3411.79518866715,-3420.09410131612,-3428.36630272248,-3436.61151686153,-3448.96302053118,-3461.29816113588,-3473.65946352902,-3486.04651032483,-3494.25667408339,-3502.41838615398,-3510.53106573719,-3518.58596555902,-3526.58220998874,-3534.51892977138,-3543.73752306761,-3552.91477832882,-3562.0502751617,-3566.74228780032,-3571.42748811334,-3578.97907470305,-3586.53346866652,-3594.09027152578,-3603.50948141106,-3612.966193946,-3622.45955691513,-3631.98871480002,-3639.46652304939,-3647.00945150558,-3654.61636691088,-3662.52943707632,-3670.47659657846,-3678.45745689096,-3686.39940306354,-3694.30203419029,-3702.16495379643,-3709.72256427042,-3717.24561492496,-3724.73371873281,-3736.31774010047,-3747.85210557286,-3759.3720478562,-3770.87721172444,-3778.49405535643,-3786.05691412383,-3793.56507647745,-3801.03162092845,-3808.45620076784,-3815.83847353511,-3822.6688476633,-3829.45607862405,-3836.19980171043,-3854.18306327412],"mode":"lines","type":"scatter3d","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="disqus-comments">
+      <i class="fas fa-comments"></i>
+      &nbsp;
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2022-05-01-surveycal/">Comment on this article</span>
+    </span>
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=Survey%20calculation%20methods%3A%20part%201%20&amp;url=https%3A%2F%2Fwww.chatosolutions.com%2Fposts%2F2022-05-01-surveycal%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.chatosolutions.com%2Fposts%2F2022-05-01-surveycal%2F&amp;title=Survey%20calculation%20methods%3A%20part%201%20">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </span>
+  </p>
+  <script id="dsq-count-scr" src="https://https-www-chatosolutions-com.disqus.com/count.js" async></script>
+  <div id="disqus_thread" class="hidden"></div>
+  <script type="text/javascript" cookie-consent="functionality">
+var disqus_config = function () {
+  this.page.url = 'https://www.chatosolutions.com/posts/2022-05-01-surveycal/';
+  this.page.identifier = 'posts/2022-05-01-surveycal/';
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://https-www-chatosolutions-com.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Vazquez (2022, May 1). Chato Solutions: Survey calculation methods: part 1 . Retrieved from https://www.chatosolutions.com/posts/2022-05-01-surveycal/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{vazquez2022survey,
+  author = {Vazquez, Rigoberto Chandomi},
+  title = {Chato Solutions: Survey calculation methods: part 1 },
+  url = {https://www.chatosolutions.com/posts/2022-05-01-surveycal/},
+  year = {2022}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+  <p>Â© Chato Solutions 2021. Made with the R [distill] package.</p>
+</div>
+<!--/radix_placeholder_navigation_after_body-->
+
+
+</body>
+
+</html>
