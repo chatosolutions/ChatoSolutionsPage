@@ -7,7 +7,17 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 18 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Survey calculation methods: part 1 </title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-05-01-surveycal</link>
+      <description>The tangential method in R</description>
+      <category>R</category>
+      <category>Drilling</category>
+      <guid>https://www.chatosolutions.com/posts/2022-05-01-surveycal</guid>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Inflow performance relationship: Part 2</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
