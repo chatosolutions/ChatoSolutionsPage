@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+<title>Chato Solutions: Fontral advance equation: part 1 </title>
+
+<meta property="description" itemprop="description" content="Application of Buckley-Leverett and Welge solution with R code"/>
+
+<link rel="canonical" href="https://www.chatosolutions.com/posts/2022-06-08-fw1/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2022-06-08"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-06-08"/>
+<meta name="article:author" content="Rigoberto Chandomi Vazquez"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Chato Solutions: Fontral advance equation: part 1 "/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Application of Buckley-Leverett and Welge solution with R code"/>
+<meta property="og:url" content="https://www.chatosolutions.com/posts/2022-06-08-fw1/"/>
+<meta property="og:image" content="https://www.chatosolutions.com/posts/2022-06-08-fw1/Rplot.png"/>
+<meta property="og:image:width" content="573"/>
+<meta property="og:image:height" content="723"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Chato Solutions"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Chato Solutions: Fontral advance equation: part 1 "/>
+<meta property="twitter:description" content="Application of Buckley-Leverett and Welge solution with R code"/>
+<meta property="twitter:url" content="https://www.chatosolutions.com/posts/2022-06-08-fw1/"/>
+<meta property="twitter:image" content="https://www.chatosolutions.com/posts/2022-06-08-fw1/Rplot.png"/>
+<meta property="twitter:image:width" content="573"/>
+<meta property="twitter:image:height" content="723"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Chato Solutions: Fontral advance equation: part 1 "/>
+<meta name="citation_fulltext_html_url" content="https://www.chatosolutions.com/posts/2022-06-08-fw1/"/>
+<meta name="citation_online_date" content="2022/06/08"/>
+<meta name="citation_publication_date" content="2022/06/08"/>
+<meta name="citation_author" content="Rigoberto Chandomi Vazquez"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Fontral advance equation: part 1 "]},{"type":"character","attributes":{},"value":["Application of Buckley-Leverett and Welge solution with R code"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Rigoberto Chandomi Vazquez"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/"]}]}]},{"type":"character","attributes":{},"value":["06-08-2022"]},{"type":"character","attributes":{},"value":["Rplot.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Well testing"]},{"type":"character","attributes":{},"value":["https://www.chatosolutions.com/posts/2022-06-08-fw1/"]},{"type":"character","attributes":{},"value":["https://www.chatosolutions.com/posts/2022-06-08-fw1/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["bac_button.html","fw1_files/anchor-4.2.2/anchor.min.js","fw1_files/bowser-1.9.3/bowser.min.js","fw1_files/crosstalk-1.1.1/css/crosstalk.css","fw1_files/crosstalk-1.1.1/js/crosstalk.js","fw1_files/crosstalk-1.1.1/js/crosstalk.js.map","fw1_files/crosstalk-1.1.1/js/crosstalk.min.js","fw1_files/crosstalk-1.1.1/js/crosstalk.min.js.map","fw1_files/distill-2.2.21/template.v2.js","fw1_files/figure-html5/unnamed-chunk-1-1.png","fw1_files/figure-html5/unnamed-chunk-3-1.png","fw1_files/figure-html5/unnamed-chunk-4-1.png","fw1_files/header-attrs-2.11/header-attrs.js","fw1_files/htmlwidgets-1.5.3/htmlwidgets.js","fw1_files/jquery-3.5.1/jquery-AUTHORS.txt","fw1_files/jquery-3.5.1/jquery.js","fw1_files/jquery-3.5.1/jquery.min.js","fw1_files/jquery-3.5.1/jquery.min.map","fw1_files/plotly-binding-4.9.3/plotly.js","fw1_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css","fw1_files/plotly-main-1.57.1/plotly-latest.min.js","fw1_files/popper-2.6.0/popper.min.js","fw1_files/tippy-6.2.7/tippy-bundle.umd.min.js","fw1_files/tippy-6.2.7/tippy-light-border.css","fw1_files/tippy-6.2.7/tippy.css","fw1_files/tippy-6.2.7/tippy.umd.min.js","fw1_files/typedarray-0.1/typedarray.min.js","fw1_files/webcomponents-2.0.0/webcomponents.js","Rplot.png"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+<meta name="distill:offset" content="../.."/>
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      tolerance: 5,
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #0F2E3D;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+  min-width: 150px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative; min-height: 500px; }
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+/* adjust viewport for navbar height */
+/* helps vertically center bootstrap (non-distill) content */
+.min-vh-100 {
+  min-height: calc(100vh - 100px) !important;
+}
+
+</style>
+
+<script src="../../site_libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+<script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+<script type="application/javascript">
+
+function getMeta(metaName) {
+  var metas = document.getElementsByTagName('meta');
+  for (let i = 0; i < metas.length; i++) {
+    if (metas[i].getAttribute('name') === metaName) {
+      return metas[i].getAttribute('content');
+    }
+  }
+  return '';
+}
+
+function offsetURL(url) {
+  var offset = getMeta('distill:offset');
+  return offset ? offset + '/' + url : url;
+}
+
+function createFuseIndex() {
+
+  // create fuse index
+  var options = {
+    keys: [
+      { name: 'title', weight: 20 },
+      { name: 'categories', weight: 15 },
+      { name: 'description', weight: 10 },
+      { name: 'contents', weight: 5 },
+    ],
+    ignoreLocation: true,
+    threshold: 0
+  };
+  var fuse = new window.Fuse([], options);
+
+  // fetch the main search.json
+  return fetch(offsetURL('search.json'))
+    .then(function(response) {
+      if (response.status == 200) {
+        return response.json().then(function(json) {
+          // index main articles
+          json.articles.forEach(function(article) {
+            fuse.add(article);
+          });
+          // download collections and index their articles
+          return Promise.all(json.collections.map(function(collection) {
+            return fetch(offsetURL(collection)).then(function(response) {
+              if (response.status === 200) {
+                return response.json().then(function(articles) {
+                  articles.forEach(function(article) {
+                    fuse.add(article);
+                  });
+                })
+              } else {
+                return Promise.reject(
+                  new Error('Unexpected status from search index request: ' +
+                            response.status)
+                );
+              }
+            });
+          })).then(function() {
+            return fuse;
+          });
+        });
+
+      } else {
+        return Promise.reject(
+          new Error('Unexpected status from search index request: ' +
+                      response.status)
+        );
+      }
+    });
+}
+
+window.document.addEventListener("DOMContentLoaded", function (event) {
+
+  // get search element (bail if we don't have one)
+  var searchEl = window.document.getElementById('distill-search');
+  if (!searchEl)
+    return;
+
+  createFuseIndex()
+    .then(function(fuse) {
+
+      // make search box visible
+      searchEl.classList.remove('hidden');
+
+      // initialize autocomplete
+      var options = {
+        autoselect: true,
+        hint: false,
+        minLength: 2,
+      };
+      window.autocomplete(searchEl, options, [{
+        source: function(query, callback) {
+          const searchOptions = {
+            isCaseSensitive: false,
+            shouldSort: true,
+            minMatchCharLength: 2,
+            limit: 10,
+          };
+          var results = fuse.search(query, searchOptions);
+          callback(results
+            .map(function(result) { return result.item; })
+          );
+        },
+        templates: {
+          suggestion: function(suggestion) {
+            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+              : '';
+            var html = `
+              <div class="search-item">
+                <h3>${suggestion.title}</h3>
+                <div class="search-item-description">
+                  ${suggestion.description || ''}
+                </div>
+                <div class="search-item-preview">
+                  ${img}
+                </div>
+              </div>
+            `;
+            return html;
+          }
+        }
+      }]).on('autocomplete:selected', function(event, suggestion) {
+        window.location.href = offsetURL(suggestion.path);
+      });
+      // remove inline display style on autocompleter (we want to
+      // manage responsive display via css)
+      $('.algolia-autocomplete').css("display", "");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+});
+
+</script>
+
+<style type="text/css">
+
+.nav-search {
+  font-size: x-small;
+}
+
+/* Algolioa Autocomplete */
+
+.algolia-autocomplete {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: sub;
+  background-color: white;
+  color: black;
+  padding: 6px;
+  padding-top: 8px;
+  padding-bottom: 0;
+  border-radius: 6px;
+  border: 1px #0F2E3D solid;
+  width: 180px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-nav .algolia-autocomplete {
+    display: none;
+    visibility: hidden;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete {
+    display: inline-block;
+    visibility: visible;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+    margin-left: 0;
+    width: 400px;
+    max-height: 400px;
+  }
+}
+
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 90%;
+  outline: none;
+  border: none;
+}
+
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 550px;
+  max-height: 70vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-top: 3px;
+  margin-left: -150px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #999;
+  border-top: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+  overflow: hidden;
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+  font-size: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+  display: inline-block;
+  overflow: hidden;
+  height: 2.8em;
+  width: 80%;
+  margin-right: 4%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+  display: inline-block;
+  width: 15%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+  height: 3em;
+  width: auto;
+  display: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+  display: initial;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #eee;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+</style>
+
+
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+d-byline .byline {
+  grid-template-columns: 2fr 2fr;
+}
+
+d-byline .byline h3 {
+  margin-block-start: 1.5em;
+}
+
+d-byline .byline .authors-affiliations h3 {
+  margin-block-start: 0.5em;
+}
+
+.authors-affiliations .orcid-id {
+  width: 16px;
+  height:16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  padding-bottom: 2px;
+}
+
+d-title .dt-tags {
+  margin-top: 1em;
+  grid-column: text;
+}
+
+.dt-tags .dt-tag {
+  text-decoration: none;
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0em 0.4em;
+  margin-right: 0.5em;
+  margin-bottom: 0.4em;
+  font-size: 70%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+d-article table.gt_table td,
+d-article table.gt_table th {
+  border-bottom: none;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-top: 2.5rem;
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article h2 {
+  margin: 1rem 0 1.5rem 0;
+}
+
+d-article h3 {
+  margin-top: 1.5rem;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+/* Tweak code blocks */
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: auto;
+}
+
+d-article div.sourceCode {
+  background-color: white;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+d-article pre {
+  font-size: 12px;
+  color: black;
+  background: none;
+  margin-top: 0;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+d-article pre a {
+  border-bottom: none;
+}
+
+d-article pre a:hover {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+d-article details {
+  grid-column: text;
+  margin-bottom: 0.8em;
+}
+
+@media(min-width: 768px) {
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: visible !important;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+d-article pre {
+  font-size: 14px;
+}
+
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for d-contents */
+
+.d-contents {
+  grid-column: text;
+  color: rgba(0,0,0,0.8);
+  font-size: 0.9em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-left: 0.25em;
+  justify-self: start;
+}
+
+@media(min-width: 1000px) {
+  .d-contents.d-contents-float {
+    height: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
+    padding-right: 3em;
+    padding-left: 2em;
+  }
+}
+
+.d-contents nav h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.d-contents li {
+  list-style-type: none
+}
+
+.d-contents nav > ul {
+  padding-left: 0;
+}
+
+.d-contents ul {
+  padding-left: 1em
+}
+
+.d-contents nav ul li {
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+.d-contents nav a {
+  font-size: 13px;
+  border-bottom: none;
+  text-decoration: none
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.d-contents nav a:hover {
+  text-decoration: underline solid rgba(0, 0, 0, 0.6)
+}
+
+.d-contents nav > ul > li > a {
+  font-weight: 600;
+}
+
+.d-contents nav > ul > li > ul {
+  font-weight: inherit;
+}
+
+.d-contents nav > ul > li > ul > li {
+  margin-top: 0.2em;
+}
+
+
+.d-contents nav ul {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.d-article-with-toc h2:nth-child(2) {
+  margin-top: 0;
+}
+
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+/* Citations */
+
+d-article .citation {
+  color: inherit;
+  cursor: inherit;
+}
+
+div.hanging-indent{
+  margin-left: 1em; text-indent: -1em;
+}
+
+/* Citation hover box */
+
+.tippy-box[data-theme~=light-border] {
+  background-color: rgba(250, 250, 250, 0.95);
+}
+
+.tippy-content > p {
+  margin-bottom: 0;
+  padding: 2px;
+}
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Include appendix styles here so they can be overridden */
+
+d-appendix {
+  contain: layout style;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-top: 60px;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+d-appendix h3 {
+  grid-column: page-start / text-start;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+d-appendix h3 + * {
+  margin-top: 1em;
+}
+
+d-appendix ol {
+  padding: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  d-appendix ol {
+    padding: 0 0 0 30px;
+    margin-left: -30px;
+  }
+}
+
+d-appendix li {
+  margin-bottom: 1em;
+}
+
+d-appendix a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+d-appendix > * {
+  grid-column: text;
+}
+
+d-appendix > d-footnote-list,
+d-appendix > d-citation-list,
+d-appendix > distill-appendix {
+  grid-column: screen;
+}
+
+/* Include footnote styles here so they can be overridden */
+
+d-footnote-list {
+  contain: layout style;
+}
+
+d-footnote-list > * {
+  grid-column: text;
+}
+
+d-footnote-list a.footnote-backlink {
+  color: rgba(0,0,0,0.3);
+  padding-left: 0.5em;
+}
+
+
+
+/* Anchor.js */
+
+.anchorjs-link {
+  /*transition: all .25s linear; */
+  text-decoration: none;
+  border-bottom: none;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+/* Styles for listing layout (hide title) */
+.layout-listing d-title, .layout-listing .d-title {
+  display: none;
+}
+
+/* Styles for posts lists (not auto-injected) */
+
+
+.posts-with-sidebar {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.posts-list .description h2,
+.posts-list .description p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.posts-list .description h2 {
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.posts-list h2.post-tag {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 12px;
+}
+.posts-list {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.posts-list .post-preview {
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 24px 0;
+}
+
+.post-preview-last {
+  border-bottom: none !important;
+}
+
+.posts-list .posts-list-caption {
+  grid-column: screen;
+  font-weight: 400;
+}
+
+.posts-list .post-preview h2 {
+  margin: 0 0 6px 0;
+  line-height: 1.2em;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.posts-list .post-preview p {
+  margin: 0 0 12px 0;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+
+.posts-list .post-preview .thumbnail {
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  position: relative;
+  max-width: 500px;
+}
+.posts-list .post-preview img {
+  width: 100%;
+  display: block;
+}
+
+.posts-list .metadata {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin-bottom: 18px;
+}
+
+.posts-list .metadata > * {
+  display: inline-block;
+}
+
+.posts-list .metadata .publishedDate {
+  margin-right: 2em;
+}
+
+.posts-list .metadata .dt-authors {
+  display: block;
+  margin-top: 0.3em;
+  margin-right: 2em;
+}
+
+.posts-list .dt-tags {
+  display: block;
+  line-height: 1em;
+}
+
+.posts-list .dt-tags .dt-tag {
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0.3em 0.4em;
+  margin-right: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 60%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.posts-list img {
+  opacity: 1;
+}
+
+.posts-list img[data-src] {
+  opacity: 0;
+}
+
+.posts-more {
+  clear: both;
+}
+
+
+.posts-sidebar {
+  font-size: 16px;
+}
+
+.posts-sidebar h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.categories ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories li {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+.categories li>a {
+  border-bottom: none;
+}
+
+.categories li>a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.categories .active {
+  font-weight: 600;
+}
+
+.categories .category-count {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+@media(min-width: 768px) {
+  .posts-list .post-preview h2 {
+    font-size: 26px;
+  }
+  .posts-list .post-preview .thumbnail {
+    float: right;
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .posts-list .post-preview .description {
+    float: left;
+    width: 45%;
+  }
+  .posts-list .post-preview .metadata {
+    float: left;
+    width: 20%;
+    margin-top: 8px;
+  }
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+  .posts-with-sidebar .posts-list {
+    float: left;
+    width: 75%;
+  }
+  .posts-with-sidebar .posts-sidebar {
+    float: right;
+    width: 20%;
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.downlevel .posts-list .post-preview {
+  color: inherit;
+}
+
+
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // add anchors
+  if (window.anchors) {
+    window.anchors.options.placement = 'left';
+    window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+  }
+
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  // move refs into #references-listing
+  $('#references-listing').replaceWith($('#refs'));
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-contents a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('details, div.sourceCode, pre, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // remove code block used to force  highlighting css
+  $('.distill-force-highlighting-css').parent().remove();
+
+  // remove empty line numbers inserted by pandoc when using a
+  // custom syntax highlighting theme
+  $('code.sourceCode a:empty').remove();
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // article with toc class
+    $('.d-contents').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // add orcid ids
+    $('.authors-affiliations').find('.author').each(function(i, el) {
+      var orcid_id = front_matter.authors[i].orcidID;
+      if (orcid_id) {
+        var a = $('<a></a>');
+        a.attr('href', 'https://orcid.org/' + orcid_id);
+        var img = $('<img></img>');
+        img.addClass('orcid-id');
+        img.attr('alt', 'ORCID ID');
+        img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+        a.append(img);
+        $(this).append(a);
+      }
+    });
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // remove d-appendix and d-footnote-list local styles
+    $('d-appendix > style:first-child').remove();
+    $('d-footnote-list > style:first-child').remove();
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // hoverable references
+    $('span.citation[data-cites]').each(function() {
+      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      window.tippy(this, {
+        allowHTML: true,
+        content: refHtml,
+        maxWidth: 500,
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start'
+      });
+    });
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-contents').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="../../site_libs/plotly-binding-4.9.3/plotly.js"></script>
+  <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="../../site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="../../site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="../../site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="../../site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Fontral advance equation: part 1 ","description":"Application of Buckley-Leverett and Welge solution with R code","authors":[{"author":"Rigoberto Chandomi Vazquez","authorURL":"https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-06-08T00:00:00.000-05:00","citationText":"Vazquez, 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo">
+<img src="../../images/logo_fb.png" alt="Logo"/>
+</a>
+<a href="../../index.html" class="title">Chato Solutions</a>
+<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../blog.html">Blog</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Shiny Apps
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="../../app.html">RET (Reservoir Engineering Tools)</a>
+<a href="../../appPTA.html">PTA webapp</a>
+</div>
+</div>
+<a href="https://github.com/chatosolutions">
+<i class="fa fa-github" aria-hidden="true"></i>
+</a>
+<a href="https://twitter.com/ChatoSolutions">
+<i class="fa fa-twitter" aria-hidden="true"></i>
+</a>
+<a href="https://www.instagram.com/chatosolutions/">
+<i class="fab fa-instagram" aria-hidden="true"></i>
+</a>
+<a href="https://www.linkedin.com/company/chato-solutions/">
+<i class="fa fa-linkedin" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Fontral advance equation: part 1</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../blog.html#category:R" class="dt-tag">R</a>
+  <a href="../../blog.html#category:Well_testing" class="dt-tag">Well testing</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Application of Buckley-Leverett and Welge solution with R
+code</p></p>
+</div>
+
+<div class="d-byline">
+  Rigoberto Chandomi Vazquez <a
+href="https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/"
+class="uri">https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/</a> 
+  
+<br/>06-08-2022
+</div>
+
+<div class="d-article">
+<p>In 1942 Buckley and Leverett developed a model to describe the
+displacement of one fluid to another in a immiscible way.</p>
+<p>The model assummes no mass tranfer between phases, incomplessible
+fluids and a homogeneous system, the solution gives a saturation profile
+along the flow direction but ignores capillary pressure and grafity
+effects.</p>
+<p>The fractional flow of a fluid phase, <span
+class="math inline">\(f\)</span>, is defined as the volumetric flux
+fraction of the phase that is flowing at position x and time t,
+fractional flow to water is</p>
+<p><span class="math display">\[ f_w = \frac{q_o}{q_o +
+q_w}\]</span></p>
+<p>Applying Darcy law, for one-dimensional linear flow for simultaneous
+flow of oil and water, Buckley and Leverett got the following
+equation</p>
+<p><span class="math display">\[ f_w = \frac{1+\frac{Ak\ k_{ro}}{q_t
+\mu_o}(\frac{\partial P_c}{\partial x}-\Delta \rho g sin \theta)}{1+
+\frac{k_{ro} \mu_w}{k_{rw}\mu{o}}}\]</span></p>
+<p>when the flow is in a horizontal reservoir, <span
+class="math inline">\(\theta = 0\)</span>, the gravity term is absent.
+Then the fractional flow equation of water phase is reduced to the
+following</p>
+<p><span class="math display">\[ f_w = \frac{1}{1+ \frac{k_{ro}
+\mu_w}{k_{rw}\mu{o}}}\]</span></p>
+<p>Welge shown a easy approach to estimate the position of the shock
+saturation front. Draw a line that starts at the point defined by the
+beginning of water injection to the point of tangency defines the
+breakthrough or flood front saturation, <span
+class="math inline">\(S_{sf}\)</span> and extending the tangency to a 1
+<span class="math inline">\(f_w\)</span> value defines the mean water
+saturation.</p>
+<p><img src="Rplot.png" style="width:100.0%" /></p>
+<p>According Welge method we can define <span
+class="math inline">\(f_w\)</span> using normalized water saturation
+<span class="math inline">\(S_{wD}\)</span> and oil water relative
+permeability, in this <span class="math inline">\(k_{ro}\)</span> and
+<span class="math inline">\(k_{rw}\)</span> are defined using corey
+equations. <span class="math display">\[ k_{ro} =
+(1-S_{wD})^n\]</span></p>
+<p><span class="math display">\[ k_{rw} = S_{wD}^m\]</span></p>
+<p><span class="math display">\[ S_{wD} = \frac{S_w -
+S_{iw}}{1-S_{or}-S_{iw}}\]</span></p>
+<p><span class="math display">\[ f_w =
+\frac{S_{wD}^{n}}{S_{wD}^{n}+A(1-S_{wD})^m} \]</span></p>
+<p><span class="math display">\[ \frac{\partial f_w}{\partial S_w} =
+\frac{AB+nS_{wD}^{n-1}(1-S_{wD})^m+mS_{wD}^{n}(1-S_{wD})^{m-1}}
+{[S_{wD}^{n}+A(1-S_{wD})^m]^2}  \]</span></p>
+<p>where</p>
+<p><span class="math display">\[ A = \frac{\alpha_1 \mu_w}{\alpha_2
+\mu_0}\]</span></p>
+<p><span class="math display">\[ B =
+\frac{1}{1-S_{or}-S_{iw}}\]</span></p>
+<p>After water breakthrough we can define a production profile with the
+following calcualtes</p>
+<ol type="1">
+<li>Define a water saturation range after water saturation
+breakthrough</li>
+<li>Estimate fractional flow mean water saturation in every point</li>
+<li>Compute oil rate</li>
+</ol>
+<p><span class="math display">\[ qo = \frac{(1-f_w)q_t}{B_o}
+\]</span></p>
+<ol start="4" type="1">
+<li>Calculate water-oil ratio</li>
+</ol>
+<p><span class="math display">\[ WOR =
+\frac{f_wB_o}{f_oB_w}\]</span></p>
+<ol start="5" type="1">
+<li>Calculate oil production comulative</li>
+</ol>
+<p><span class="math display">\[ N_p = V_p(\overline S_w -
+S{wi})\]</span></p>
+<ol start="6" type="1">
+<li>Define time</li>
+</ol>
+<p><span class="math display">\[ t = \frac{Q_iA\phi L}{q_t}\]</span></p>
+<p>The next example shows the before methodology using R code</p>
+<p><span class="math inline">\(Reservoir cross Area = 6000 \
+ft^2\)</span></p>
+<p><span class="math inline">\(Reservoir long = 1000 \ ft\)</span></p>
+<p><span class="math inline">\(Porosity = 0.15\)</span></p>
+<p><span class="math inline">\(Initial water saturation =
+0.363\)</span></p>
+<p><span class="math inline">\(Water injection rate = 338 \
+B/D\)</span></p>
+<p><span class="math inline">\(Oil viscosity = 2 \ cp\)</span></p>
+<p><span class="math inline">\(Water viscosity = 2 \ cp\)</span></p>
+<p><span class="math inline">\(Oil and water FVF = 1\)</span></p>
+<p><span class="math inline">\(relative permeability exponent, no =
+2.56, nw = 3.72\)</span></p>
+<p><span class="math inline">\(max relative permeability, kromax = 1,
+krwmax = 0.78\)</span></p>
+<p>First, define variables from data and generate relative permeability
+curves to visualize ther behavior</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>L</span> <span class='op'>=</span> <span class='fl'>1000</span>
+<span class='va'>Ar</span> <span class='op'>=</span> <span class='fl'>6000</span>
+<span class='va'>Poro</span> <span class='op'>=</span> <span class='fl'>0.15</span>
+<span class='va'>K</span> <span class='op'>=</span> <span class='fl'>100</span>
+
+<span class='va'>VisO</span> <span class='op'>=</span> <span class='fl'>2</span>
+<span class='va'>VisW</span> <span class='op'>=</span> <span class='fl'>1</span>
+<span class='va'>Bo</span> <span class='op'>=</span> <span class='fl'>1.2</span>
+<span class='va'>Bw</span> <span class='op'>=</span> <span class='fl'>1</span>
+
+<span class='va'>Sor</span> <span class='op'>=</span> <span class='fl'>0.205</span>
+<span class='va'>Swc</span> <span class='op'>=</span> <span class='fl'>0.363</span>
+<span class='va'>kromax</span> <span class='op'>=</span> <span class='fl'>1</span>
+<span class='va'>krwmax</span> <span class='op'>=</span> <span class='fl'>0.78</span>
+<span class='va'>no</span> <span class='op'>=</span> <span class='fl'>2.56</span>
+<span class='va'>nw</span> <span class='op'>=</span> <span class='fl'>3.72</span>
+
+<span class='va'>Winj</span> <span class='op'>=</span> <span class='fl'>338</span>
+<span class='va'>Swi</span> <span class='op'>=</span> <span class='fl'>0.363</span>
+<span class='va'>winjT</span> <span class='op'>=</span> <span class='fl'>1000</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='va'>Sw</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='va'>Swc</span>, <span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>Sor</span><span class='op'>)</span>, <span class='fl'>0.001</span><span class='op'>)</span>
+<span class='va'>SwD</span><span class='op'>=</span> <span class='op'>(</span><span class='va'>Sw</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>Sor</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span>
+<span class='va'>krwa</span> <span class='op'>=</span> <span class='va'>krwmax</span> <span class='op'>*</span> <span class='va'>SwD</span> <span class='op'>^</span> <span class='va'>nw</span>
+<span class='va'>kroa</span> <span class='op'>=</span> <span class='va'>kromax</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>SwD</span><span class='op'>)</span> <span class='op'>^</span> <span class='va'>no</span>
+
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Sw</span>, y <span class='op'>=</span> <span class='va'>krwa</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"blue"</span>, size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Sw</span>, y <span class='op'>=</span> <span class='va'>kroa</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"green"</span>, size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="fw1_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+</div>
+<p>Now, using Sw vector, estimate de fractional flow in every water
+saturation point and its slope to get the maximum slope, corresponding
+to water saturation at breakthrough</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>A</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>kromax</span> <span class='op'>*</span> <span class='va'>VisW</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>krwmax</span> <span class='op'>*</span> <span class='va'>VisO</span><span class='op'>)</span>
+<span class='va'>B</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>Sor</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span>
+<span class='va'>FWFa</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>SwD</span> <span class='op'>^</span> <span class='va'>nw</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='op'>(</span><span class='va'>SwD</span> <span class='op'>^</span> <span class='va'>nw</span><span class='op'>)</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>A</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>SwD</span><span class='op'>)</span> <span class='op'>^</span> <span class='va'>no</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>SwDi</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>Swi</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>Sor</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span>
+<span class='va'>FWi</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>SwDi</span> <span class='op'>^</span> <span class='va'>nw</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='op'>(</span><span class='va'>SwDi</span> <span class='op'>^</span> <span class='va'>nw</span><span class='op'>)</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>A</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>SwDi</span><span class='op'>)</span> <span class='op'>^</span> <span class='va'>no</span><span class='op'>)</span><span class='op'>)</span>
+  
+<span class='va'>SLO</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>FWFa</span> <span class='op'>&gt;</span> <span class='va'>FWi</span>, <span class='op'>(</span><span class='va'>FWFa</span> <span class='op'>-</span> <span class='va'>FWi</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='va'>Sw</span> <span class='op'>-</span> <span class='va'>Swi</span><span class='op'>)</span>,<span class='fl'>0</span><span class='op'>)</span>
+
+<span class='va'>Swbt</span> <span class='op'>&lt;-</span> <span class='va'>Sw</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span><span class='op'>(</span><span class='va'>SLO</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>Fwbt</span> <span class='op'>&lt;-</span> <span class='va'>FWFa</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span><span class='op'>(</span><span class='va'>SLO</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>Swbtm</span> <span class='op'>=</span> <span class='va'>Swbt</span> <span class='op'>+</span> <span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='va'>SLO</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span><span class='op'>(</span><span class='va'>SLO</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>FWFa</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span><span class='op'>(</span><span class='va'>SLO</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://plotly-r.com'>plotly</a></span><span class='op'>)</span>
+<span class='va'>Fw_fig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Sw</span>, y <span class='op'>=</span> <span class='va'>FWFa</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"blue"</span>, size <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Swi</span>, <span class='va'>Swbtm</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>FWi</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Swbt</span>, y <span class='op'>=</span> <span class='va'>Fwbt</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Swbtm</span>, y <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Sw"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"fw"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>text<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>xlim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/plotly/man/ggplotly.html'>ggplotly</a></span><span class='op'>(</span><span class='va'>Fw_fig</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-3ef28447c29602d7e960" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3ef28447c29602d7e960">{"x":{"data":[{"x":[0.363,0.364,0.365,0.366,0.367,0.368,0.369,0.37,0.371,0.372,0.373,0.374,0.375,0.376,0.377,0.378,0.379,0.38,0.381,0.382,0.383,0.384,0.385,0.386,0.387,0.388,0.389,0.39,0.391,0.392,0.393,0.394,0.395,0.396,0.397,0.398,0.399,0.4,0.401,0.402,0.403,0.404,0.405,0.406,0.407,0.408,0.409,0.41,0.411,0.412,0.413,0.414,0.415,0.416,0.417,0.418,0.419,0.42,0.421,0.422,0.423,0.424,0.425,0.426,0.427,0.428,0.429,0.43,0.431,0.432,0.433,0.434,0.435,0.436,0.437,0.438,0.439,0.44,0.441,0.442,0.443,0.444,0.445,0.446,0.447,0.448,0.449,0.45,0.451,0.452,0.453,0.454,0.455,0.456,0.457,0.458,0.459,0.46,0.461,0.462,0.463,0.464,0.465,0.466,0.467,0.468,0.469,0.47,0.471,0.472,0.473,0.474,0.475,0.476,0.477,0.478,0.479,0.48,0.481,0.482,0.483,0.484,0.485,0.486,0.487,0.488,0.489,0.49,0.491,0.492,0.493,0.494,0.495,0.496,0.497,0.498,0.499,0.5,0.501,0.502,0.503,0.504,0.505,0.506,0.507,0.508,0.509,0.51,0.511,0.512,0.513,0.514,0.515,0.516,0.517,0.518,0.519,0.52,0.521,0.522,0.523,0.524,0.525,0.526,0.527,0.528,0.529,0.53,0.531,0.532,0.533,0.534,0.535,0.536,0.537,0.538,0.539,0.54,0.541,0.542,0.543,0.544,0.545,0.546,0.547,0.548,0.549,0.55,0.551,0.552,0.553,0.554,0.555,0.556,0.557,0.558,0.559,0.56,0.561,0.562,0.563,0.564,0.565,0.566,0.567,0.568,0.569,0.57,0.571,0.572,0.573,0.574,0.575,0.576,0.577,0.578,0.579,0.58,0.581,0.582,0.583,0.584,0.585,0.586,0.587,0.588,0.589,0.59,0.591,0.592,0.593,0.594,0.595,0.596,0.597,0.598,0.599,0.6,0.601,0.602,0.603,0.604,0.605,0.606,0.607,0.608,0.609,0.61,0.611,0.612,0.613,0.614,0.615,0.616,0.617,0.618,0.619,0.62,0.621,0.622,0.623,0.624,0.625,0.626,0.627,0.628,0.629,0.63,0.631,0.632,0.633,0.634,0.635,0.636,0.637,0.638,0.639,0.64,0.641,0.642,0.643,0.644,0.645,0.646,0.647,0.648,0.649,0.65,0.651,0.652,0.653,0.654,0.655,0.656,0.657,0.658,0.659,0.66,0.661,0.662,0.663,0.664,0.665,0.666,0.667,0.668,0.669,0.67,0.671,0.672,0.673,0.674,0.675,0.676,0.677,0.678,0.679,0.68,0.681,0.682,0.683,0.684,0.685,0.686,0.687,0.688,0.689,0.69,0.691,0.692,0.693,0.694,0.695,0.696,0.697,0.698,0.699,0.7,0.701,0.702,0.703,0.704,0.705,0.706,0.707,0.708,0.709,0.71,0.711,0.712,0.713,0.714,0.715,0.716,0.717,0.718,0.719,0.72,0.721,0.722,0.723,0.724,0.725,0.726,0.727,0.728,0.729,0.73,0.731,0.732,0.733,0.734,0.735,0.736,0.737,0.738,0.739,0.74,0.741,0.742,0.743,0.744,0.745,0.746,0.747,0.748,0.749,0.75,0.751,0.752,0.753,0.754,0.755,0.756,0.757,0.758,0.759,0.76,0.761,0.762,0.763,0.764,0.765,0.766,0.767,0.768,0.769,0.77,0.771,0.772,0.773,0.774,0.775,0.776,0.777,0.778,0.779,0.78,0.781,0.782,0.783,0.784,0.785,0.786,0.787,0.788,0.789,0.79,0.791,0.792,0.793,0.794,0.795],"y":[0,2.46434575365356e-010,3.26674916088161e-009,1.48512785974861e-008,4.35642811517918e-008,1.00516293196588e-007,1.99249593132619e-007,3.55674185388689e-007,5.88032534686355e-007,9.16882847930199e-007,1.36509534193885e-006,1.95785815876223e-006,2.72269078501243e-006,3.6894635281157e-006,4.89042203424355e-006,6.36021611373356e-006,8.13593233002909e-006,1.02571299411483e-005,1.27658798782276e-005,1.57068065159369e-005,1.91271320422705e-005,2.30767232754599e-005,2.7608140806959e-005,3.27766903739701e-005,3.8640476384484e-005,4.52604575334805e-005,5.27005044616512e-005,6.1027459418402e-005,7.03111978994524e-005,8.06246922364357e-005,9.20440771217958e-005,0.000104648717057191,0.000118521275717724,0.000133747787227734,0.000150417729346768,0.000168624098566689,0.000188463487122832,0.000210036161923722,0.000233446145405071,0.000258801298314769,0.000286213404436273,0.000315798257258235,0.000347675748598459,0.000381969959190281,0.000418809251239302,0.000458326362958012,0.000500658505085305,0.000545947459397117,0.000594339679213531,0.000645986391906565,0.000701043703411576,0.000759672704743791,0.000822039580519755,0.000888315719481737,0.000958677827021025,0.00103330803969388,0.00111239404172143,0.00119612918346224,0.00128471260184329,0.00137834934273214,0.00147725048522976,0.00158163326785975,0.00169172121662615,0.0018077442749078,0.00192993893515278,0.00205854837233217,0.00219382257910713,0.0023360185026582,0.00248540018312027,0.00264223889356078,0.00280681328143234,0.00297940951142473,0.00316032140963405,0.00334985060895975,0.00354830669563226,0.00375600735676629,0.003973278528826,0.00420045454687948,0.00443787829451071,0.00468590135424701,0.00494488415835015,0.00521519613980808,0.00549721588335318,0.00579133127632126,0.00609793965915283,0.00641744797532582,0.00675027292049506,0.00709684109060041,0.00745758912869029,0.00783296387019311,0.00822342248635236,0.00862943262552621,0.00905147255203432,0.00949003128221819,0.00994560871736264,0.0104187157731079,0.0109098745049623,0.0114196182295058,0.0119484916408543,0.012497050921934,0.0130658638500927,0.0136555098965547,0.0142665803192005,0.0148996782481331,0.0155554187634664,0.0162344289647481,0.016937348031406,0.0176648272735805,0.0184175301726835,0.0191961324109947,0.0200013218895863,0.0208337987338362,0.021694275285769,0.0225834760824346,0.0235021378195127,0.0244510092993024,0.0254308513622361,0.0264424368010268,0.0274865502565408,0.0285639880944585,0.0296755582617691,0.0308220801221206,0.0320043842690274,0.0332233123159212,0.0344797166620102,0.0357744602329008,0.0371084161949185,0.0384824676420572,0.0398975072544752,0.0413544369274509,0.0428541673697081,0.044397617670022,0.045985714831018,0.0476193932690845,0.0492995942793335,0.0510272654645541,0.0528033601271288,0.0546288366229055,0.0565046576760481,0.0584317896539254,0.0604112018011402,0.0624438654318473,0.0645307530795654,0.0666728376037463,0.0688710912524381,0.071126484680449,0.073439985922508,0.0758125593210051,0.0782451644079976,0.080738754741274,0.0832942766943849,0.0859126682006788,0.0885948574515076,0.0913417615489197,0.0941542851133023,0.0970333188466022,0.0999797380519196,0.102994401110454,0.106078147916962,0.109231798275094,0.112456150254164,0.11575197850914,0.119120032565842,0.122561035073571,0.126075680027623,0.12966463096438,0.133328519131905,0.137067941639217,0.140883459587673,0.144775596188132,0.148744834867817,0.152791617371047,0.156916341858253,0.161119361007941,0.165400980126488,0.169761455270889,0.174200991389812,0.178719740488492,0.183317799823219,0.187995210131363,0.192751953902997,0.197587953700403,0.202503070531791,0.20749710228574,0.212569782232895,0.217720777601545,0.222949688233712,0.228256045328413,0.233639310278659,0.239098873608794,0.244634054018559,0.25024409754023,0.255928176814965,0.261685390494287,0.267514762772409,0.273415243054819,0.279385705768205,0.285424950316493,0.291531701187321,0.297704608212906,0.303942246988738,0.310243119453109,0.316605654629882,0.323028209536439,0.329509070258058,0.336046453189484,0.342638506443712,0.349283311427461,0.355978884582053,0.362723179287851,0.369514087929623,0.376349444119603,0.383227025074279,0.390144554140312,0.39709970346428,0.404090096800325,0.41111331244913,0.418166886321049,0.425248315115639,0.432355059609276,0.439484548042035,0.44663417959455,0.453801327945098,0.46098334489681,0.468177564064548,0.475381304610701,0.482591875018927,0.489806576894689,0.497022708781306,0.504237569980173,0.511448464363821,0.518652704170489,0.525847613769053,0.533030533383264,0.540198822764494,0.547349864802477,0.554481069063799,0.561589875248343,0.56867375655424,0.575730222942386,0.582756824292058,0.58975115343971,0.596710849093594,0.603633598617441,0.61051714067706,0.617359267744333,0.624157828453771,0.630910729807393,0.637615939224443,0.644271486433028,0.650875465201516,0.657426034908132,0.663921421947866,0.670359920976425,0.676739895991603,0.683059781253002,0.689318082041658,0.695513375261623,0.701644309886119,0.707709607251336,0.713708061201423,0.719638538088638,0.725499976633008,0.73129138764622,0.737011853624763,0.742660528217644,0.748236635574229,0.753739469577989,0.759168392972093,0.764522836382937,0.769802297247816,0.775006338653003,0.780134588088557,0.785186736126189,0.790162535026517,0.795061797281971,0.799884394101579,0.804630253843744,0.809299360403037,0.813891751556881,0.818407517277874,0.822846798017311,0.827209782965306,0.831496708292718,0.835707855379882,0.839843549036936,0.843904155720316,0.84789008174978,0.851801771530067,0.855639705781098,0.859404399780367,0.863096401620952,0.866716290488348,0.870264674959064,0.873742191323744,0.877149501937308,0.880487293598418,0.883756275960329,0.886957179975019,0.890090756372248,0.893157774175028,0.89615901925279,0.899095292913346,0.901967410534592,0.904776200236705,0.907522501595461,0.910207164397133,0.912831047435287,0.915395017349683,0.917899947507346,0.920346716925753,0.922736209238001,0.925069311699697,0.927346914237219,0.929569908536943,0.931739187174907,0.933855642786361,0.935920167274548,0.937933651058041,0.939896982355869,0.94181104650967,0.943676725342008,0.94549489655004,0.947266433133587,0.948992202856736,0.950673067742027,0.952309883596259,0.953903499566974,0.955454757728645,0.956964492697579,0.958433531274584,0.959862692114401,0.961252785420954,0.962604612667434,0.963918966340279,0.965196629706093,0.966438376600588,0.967644971238609,0.968817168044372,0.969955711500994,0.971061336018482,0.972134765819309,0.973176714840764,0.974187886653258,0.975168974393812,0.97612066071395,0.977043617741256,0.97793850705389,0.978805979667341,0.979646676032754,0.980461226046186,0.981250249068139,0.982014353952776,0.982754139086237,0.983470192433475,0.984163091593084,0.984833403859589,0.985481686292702,0.986108485793059,0.986714339183989,0.987299773298864,0.987865305073615,0.988411441644015,0.988938680447342,0.989447509328064,0.989938406647192,0.990411841394977,0.990868273306638,0.991308152980816,0.991731922000491,0.992140013056074,0.992532850070442,0.992910848325673,0.993274414591249,0.993623947253541,0.993959836446351,0.994282464182356,0.994592204485266,0.994889423522537,0.995174479738503,0.995447723987786,0.995709499668851,0.995960142857607,0.996199982440943,0.996429340250101,0.996648531193815,0.99685786339114,0.997057638303899,0.997248150868716,0.997429689628571,0.997602536863866,0.997766968722967,0.997923255352223,0.998071661025453,0.998212444272929,0.998345858009872,0.9984721496645,0.998591561305699,0.998704329770368,0.998810686790546,0.998910859120425,0.999005068663377,0.999093532599173,0.999176463511561,0.999254069516451,0.99932655439096,0.999394117703646,0.999456954946294,0.999515257667718,0.999569213610102,0.999619006848524,0.999664817934446,0.999706824044102,0.999745199132943,0.999780114097555,0.999811736946832,0.999840232984634,0.99986576500678,0.999888493516054,0.999908576960058,0.999926171998346,0.999941433807622,0.999954516437165,0.99996557323192,0.999974757348862,0.999982222405748,0.999988123324729,0.999992617476166,0.999995866313755,0.999998037882637,0.999999311077478,0.999999884180669,1],"text":["Sw: 0.363<br />FWFa: 0.000000e+00","Sw: 0.364<br />FWFa: 2.464346e-10","Sw: 0.365<br />FWFa: 3.266749e-09","Sw: 0.366<br />FWFa: 1.485128e-08","Sw: 0.367<br />FWFa: 4.356428e-08","Sw: 0.368<br />FWFa: 1.005163e-07","Sw: 0.369<br />FWFa: 1.992496e-07","Sw: 0.370<br />FWFa: 3.556742e-07","Sw: 0.371<br />FWFa: 5.880325e-07","Sw: 0.372<br />FWFa: 9.168828e-07","Sw: 0.373<br />FWFa: 1.365095e-06","Sw: 0.374<br />FWFa: 1.957858e-06","Sw: 0.375<br />FWFa: 2.722691e-06","Sw: 0.376<br />FWFa: 3.689464e-06","Sw: 0.377<br />FWFa: 4.890422e-06","Sw: 0.378<br />FWFa: 6.360216e-06","Sw: 0.379<br />FWFa: 8.135932e-06","Sw: 0.380<br />FWFa: 1.025713e-05","Sw: 0.381<br />FWFa: 1.276588e-05","Sw: 0.382<br />FWFa: 1.570681e-05","Sw: 0.383<br />FWFa: 1.912713e-05","Sw: 0.384<br />FWFa: 2.307672e-05","Sw: 0.385<br />FWFa: 2.760814e-05","Sw: 0.386<br />FWFa: 3.277669e-05","Sw: 0.387<br />FWFa: 3.864048e-05","Sw: 0.388<br />FWFa: 4.526046e-05","Sw: 0.389<br />FWFa: 5.270050e-05","Sw: 0.390<br />FWFa: 6.102746e-05","Sw: 0.391<br />FWFa: 7.031120e-05","Sw: 0.392<br />FWFa: 8.062469e-05","Sw: 0.393<br />FWFa: 9.204408e-05","Sw: 0.394<br />FWFa: 1.046487e-04","Sw: 0.395<br />FWFa: 1.185213e-04","Sw: 0.396<br />FWFa: 1.337478e-04","Sw: 0.397<br />FWFa: 1.504177e-04","Sw: 0.398<br />FWFa: 1.686241e-04","Sw: 0.399<br />FWFa: 1.884635e-04","Sw: 0.400<br />FWFa: 2.100362e-04","Sw: 0.401<br />FWFa: 2.334461e-04","Sw: 0.402<br />FWFa: 2.588013e-04","Sw: 0.403<br />FWFa: 2.862134e-04","Sw: 0.404<br />FWFa: 3.157983e-04","Sw: 0.405<br />FWFa: 3.476757e-04","Sw: 0.406<br />FWFa: 3.819700e-04","Sw: 0.407<br />FWFa: 4.188093e-04","Sw: 0.408<br />FWFa: 4.583264e-04","Sw: 0.409<br />FWFa: 5.006585e-04","Sw: 0.410<br />FWFa: 5.459475e-04","Sw: 0.411<br />FWFa: 5.943397e-04","Sw: 0.412<br />FWFa: 6.459864e-04","Sw: 0.413<br />FWFa: 7.010437e-04","Sw: 0.414<br />FWFa: 7.596727e-04","Sw: 0.415<br />FWFa: 8.220396e-04","Sw: 0.416<br />FWFa: 8.883157e-04","Sw: 0.417<br />FWFa: 9.586778e-04","Sw: 0.418<br />FWFa: 1.033308e-03","Sw: 0.419<br />FWFa: 1.112394e-03","Sw: 0.420<br />FWFa: 1.196129e-03","Sw: 0.421<br />FWFa: 1.284713e-03","Sw: 0.422<br />FWFa: 1.378349e-03","Sw: 0.423<br />FWFa: 1.477250e-03","Sw: 0.424<br />FWFa: 1.581633e-03","Sw: 0.425<br />FWFa: 1.691721e-03","Sw: 0.426<br />FWFa: 1.807744e-03","Sw: 0.427<br />FWFa: 1.929939e-03","Sw: 0.428<br />FWFa: 2.058548e-03","Sw: 0.429<br />FWFa: 2.193823e-03","Sw: 0.430<br />FWFa: 2.336019e-03","Sw: 0.431<br />FWFa: 2.485400e-03","Sw: 0.432<br />FWFa: 2.642239e-03","Sw: 0.433<br />FWFa: 2.806813e-03","Sw: 0.434<br />FWFa: 2.979410e-03","Sw: 0.435<br />FWFa: 3.160321e-03","Sw: 0.436<br />FWFa: 3.349851e-03","Sw: 0.437<br />FWFa: 3.548307e-03","Sw: 0.438<br />FWFa: 3.756007e-03","Sw: 0.439<br />FWFa: 3.973279e-03","Sw: 0.440<br />FWFa: 4.200455e-03","Sw: 0.441<br />FWFa: 4.437878e-03","Sw: 0.442<br />FWFa: 4.685901e-03","Sw: 0.443<br />FWFa: 4.944884e-03","Sw: 0.444<br />FWFa: 5.215196e-03","Sw: 0.445<br />FWFa: 5.497216e-03","Sw: 0.446<br />FWFa: 5.791331e-03","Sw: 0.447<br />FWFa: 6.097940e-03","Sw: 0.448<br />FWFa: 6.417448e-03","Sw: 0.449<br />FWFa: 6.750273e-03","Sw: 0.450<br />FWFa: 7.096841e-03","Sw: 0.451<br />FWFa: 7.457589e-03","Sw: 0.452<br />FWFa: 7.832964e-03","Sw: 0.453<br />FWFa: 8.223422e-03","Sw: 0.454<br />FWFa: 8.629433e-03","Sw: 0.455<br />FWFa: 9.051473e-03","Sw: 0.456<br />FWFa: 9.490031e-03","Sw: 0.457<br />FWFa: 9.945609e-03","Sw: 0.458<br />FWFa: 1.041872e-02","Sw: 0.459<br />FWFa: 1.090987e-02","Sw: 0.460<br />FWFa: 1.141962e-02","Sw: 0.461<br />FWFa: 1.194849e-02","Sw: 0.462<br />FWFa: 1.249705e-02","Sw: 0.463<br />FWFa: 1.306586e-02","Sw: 0.464<br />FWFa: 1.365551e-02","Sw: 0.465<br />FWFa: 1.426658e-02","Sw: 0.466<br />FWFa: 1.489968e-02","Sw: 0.467<br />FWFa: 1.555542e-02","Sw: 0.468<br />FWFa: 1.623443e-02","Sw: 0.469<br />FWFa: 1.693735e-02","Sw: 0.470<br />FWFa: 1.766483e-02","Sw: 0.471<br />FWFa: 1.841753e-02","Sw: 0.472<br />FWFa: 1.919613e-02","Sw: 0.473<br />FWFa: 2.000132e-02","Sw: 0.474<br />FWFa: 2.083380e-02","Sw: 0.475<br />FWFa: 2.169428e-02","Sw: 0.476<br />FWFa: 2.258348e-02","Sw: 0.477<br />FWFa: 2.350214e-02","Sw: 0.478<br />FWFa: 2.445101e-02","Sw: 0.479<br />FWFa: 2.543085e-02","Sw: 0.480<br />FWFa: 2.644244e-02","Sw: 0.481<br />FWFa: 2.748655e-02","Sw: 0.482<br />FWFa: 2.856399e-02","Sw: 0.483<br />FWFa: 2.967556e-02","Sw: 0.484<br />FWFa: 3.082208e-02","Sw: 0.485<br />FWFa: 3.200438e-02","Sw: 0.486<br />FWFa: 3.322331e-02","Sw: 0.487<br />FWFa: 3.447972e-02","Sw: 0.488<br />FWFa: 3.577446e-02","Sw: 0.489<br />FWFa: 3.710842e-02","Sw: 0.490<br />FWFa: 3.848247e-02","Sw: 0.491<br />FWFa: 3.989751e-02","Sw: 0.492<br />FWFa: 4.135444e-02","Sw: 0.493<br />FWFa: 4.285417e-02","Sw: 0.494<br />FWFa: 4.439762e-02","Sw: 0.495<br />FWFa: 4.598571e-02","Sw: 0.496<br />FWFa: 4.761939e-02","Sw: 0.497<br />FWFa: 4.929959e-02","Sw: 0.498<br />FWFa: 5.102727e-02","Sw: 0.499<br />FWFa: 5.280336e-02","Sw: 0.500<br />FWFa: 5.462884e-02","Sw: 0.501<br />FWFa: 5.650466e-02","Sw: 0.502<br />FWFa: 5.843179e-02","Sw: 0.503<br />FWFa: 6.041120e-02","Sw: 0.504<br />FWFa: 6.244387e-02","Sw: 0.505<br />FWFa: 6.453075e-02","Sw: 0.506<br />FWFa: 6.667284e-02","Sw: 0.507<br />FWFa: 6.887109e-02","Sw: 0.508<br />FWFa: 7.112648e-02","Sw: 0.509<br />FWFa: 7.343999e-02","Sw: 0.510<br />FWFa: 7.581256e-02","Sw: 0.511<br />FWFa: 7.824516e-02","Sw: 0.512<br />FWFa: 8.073875e-02","Sw: 0.513<br />FWFa: 8.329428e-02","Sw: 0.514<br />FWFa: 8.591267e-02","Sw: 0.515<br />FWFa: 8.859486e-02","Sw: 0.516<br />FWFa: 9.134176e-02","Sw: 0.517<br />FWFa: 9.415429e-02","Sw: 0.518<br />FWFa: 9.703332e-02","Sw: 0.519<br />FWFa: 9.997974e-02","Sw: 0.520<br />FWFa: 1.029944e-01","Sw: 0.521<br />FWFa: 1.060781e-01","Sw: 0.522<br />FWFa: 1.092318e-01","Sw: 0.523<br />FWFa: 1.124562e-01","Sw: 0.524<br />FWFa: 1.157520e-01","Sw: 0.525<br />FWFa: 1.191200e-01","Sw: 0.526<br />FWFa: 1.225610e-01","Sw: 0.527<br />FWFa: 1.260757e-01","Sw: 0.528<br />FWFa: 1.296646e-01","Sw: 0.529<br />FWFa: 1.333285e-01","Sw: 0.530<br />FWFa: 1.370679e-01","Sw: 0.531<br />FWFa: 1.408835e-01","Sw: 0.532<br />FWFa: 1.447756e-01","Sw: 0.533<br />FWFa: 1.487448e-01","Sw: 0.534<br />FWFa: 1.527916e-01","Sw: 0.535<br />FWFa: 1.569163e-01","Sw: 0.536<br />FWFa: 1.611194e-01","Sw: 0.537<br />FWFa: 1.654010e-01","Sw: 0.538<br />FWFa: 1.697615e-01","Sw: 0.539<br />FWFa: 1.742010e-01","Sw: 0.540<br />FWFa: 1.787197e-01","Sw: 0.541<br />FWFa: 1.833178e-01","Sw: 0.542<br />FWFa: 1.879952e-01","Sw: 0.543<br />FWFa: 1.927520e-01","Sw: 0.544<br />FWFa: 1.975880e-01","Sw: 0.545<br />FWFa: 2.025031e-01","Sw: 0.546<br />FWFa: 2.074971e-01","Sw: 0.547<br />FWFa: 2.125698e-01","Sw: 0.548<br />FWFa: 2.177208e-01","Sw: 0.549<br />FWFa: 2.229497e-01","Sw: 0.550<br />FWFa: 2.282560e-01","Sw: 0.551<br />FWFa: 2.336393e-01","Sw: 0.552<br />FWFa: 2.390989e-01","Sw: 0.553<br />FWFa: 2.446341e-01","Sw: 0.554<br />FWFa: 2.502441e-01","Sw: 0.555<br />FWFa: 2.559282e-01","Sw: 0.556<br />FWFa: 2.616854e-01","Sw: 0.557<br />FWFa: 2.675148e-01","Sw: 0.558<br />FWFa: 2.734152e-01","Sw: 0.559<br />FWFa: 2.793857e-01","Sw: 0.560<br />FWFa: 2.854250e-01","Sw: 0.561<br />FWFa: 2.915317e-01","Sw: 0.562<br />FWFa: 2.977046e-01","Sw: 0.563<br />FWFa: 3.039422e-01","Sw: 0.564<br />FWFa: 3.102431e-01","Sw: 0.565<br />FWFa: 3.166057e-01","Sw: 0.566<br />FWFa: 3.230282e-01","Sw: 0.567<br />FWFa: 3.295091e-01","Sw: 0.568<br />FWFa: 3.360465e-01","Sw: 0.569<br />FWFa: 3.426385e-01","Sw: 0.570<br />FWFa: 3.492833e-01","Sw: 0.571<br />FWFa: 3.559789e-01","Sw: 0.572<br />FWFa: 3.627232e-01","Sw: 0.573<br />FWFa: 3.695141e-01","Sw: 0.574<br />FWFa: 3.763494e-01","Sw: 0.575<br />FWFa: 3.832270e-01","Sw: 0.576<br />FWFa: 3.901446e-01","Sw: 0.577<br />FWFa: 3.970997e-01","Sw: 0.578<br />FWFa: 4.040901e-01","Sw: 0.579<br />FWFa: 4.111133e-01","Sw: 0.580<br />FWFa: 4.181669e-01","Sw: 0.581<br />FWFa: 4.252483e-01","Sw: 0.582<br />FWFa: 4.323551e-01","Sw: 0.583<br />FWFa: 4.394845e-01","Sw: 0.584<br />FWFa: 4.466342e-01","Sw: 0.585<br />FWFa: 4.538013e-01","Sw: 0.586<br />FWFa: 4.609833e-01","Sw: 0.587<br />FWFa: 4.681776e-01","Sw: 0.588<br />FWFa: 4.753813e-01","Sw: 0.589<br />FWFa: 4.825919e-01","Sw: 0.590<br />FWFa: 4.898066e-01","Sw: 0.591<br />FWFa: 4.970227e-01","Sw: 0.592<br />FWFa: 5.042376e-01","Sw: 0.593<br />FWFa: 5.114485e-01","Sw: 0.594<br />FWFa: 5.186527e-01","Sw: 0.595<br />FWFa: 5.258476e-01","Sw: 0.596<br />FWFa: 5.330305e-01","Sw: 0.597<br />FWFa: 5.401988e-01","Sw: 0.598<br />FWFa: 5.473499e-01","Sw: 0.599<br />FWFa: 5.544811e-01","Sw: 0.600<br />FWFa: 5.615899e-01","Sw: 0.601<br />FWFa: 5.686738e-01","Sw: 0.602<br />FWFa: 5.757302e-01","Sw: 0.603<br />FWFa: 5.827568e-01","Sw: 0.604<br />FWFa: 5.897512e-01","Sw: 0.605<br />FWFa: 5.967108e-01","Sw: 0.606<br />FWFa: 6.036336e-01","Sw: 0.607<br />FWFa: 6.105171e-01","Sw: 0.608<br />FWFa: 6.173593e-01","Sw: 0.609<br />FWFa: 6.241578e-01","Sw: 0.610<br />FWFa: 6.309107e-01","Sw: 0.611<br />FWFa: 6.376159e-01","Sw: 0.612<br />FWFa: 6.442715e-01","Sw: 0.613<br />FWFa: 6.508755e-01","Sw: 0.614<br />FWFa: 6.574260e-01","Sw: 0.615<br />FWFa: 6.639214e-01","Sw: 0.616<br />FWFa: 6.703599e-01","Sw: 0.617<br />FWFa: 6.767399e-01","Sw: 0.618<br />FWFa: 6.830598e-01","Sw: 0.619<br />FWFa: 6.893181e-01","Sw: 0.620<br />FWFa: 6.955134e-01","Sw: 0.621<br />FWFa: 7.016443e-01","Sw: 0.622<br />FWFa: 7.077096e-01","Sw: 0.623<br />FWFa: 7.137081e-01","Sw: 0.624<br />FWFa: 7.196385e-01","Sw: 0.625<br />FWFa: 7.255000e-01","Sw: 0.626<br />FWFa: 7.312914e-01","Sw: 0.627<br />FWFa: 7.370119e-01","Sw: 0.628<br />FWFa: 7.426605e-01","Sw: 0.629<br />FWFa: 7.482366e-01","Sw: 0.630<br />FWFa: 7.537395e-01","Sw: 0.631<br />FWFa: 7.591684e-01","Sw: 0.632<br />FWFa: 7.645228e-01","Sw: 0.633<br />FWFa: 7.698023e-01","Sw: 0.634<br />FWFa: 7.750063e-01","Sw: 0.635<br />FWFa: 7.801346e-01","Sw: 0.636<br />FWFa: 7.851867e-01","Sw: 0.637<br />FWFa: 7.901625e-01","Sw: 0.638<br />FWFa: 7.950618e-01","Sw: 0.639<br />FWFa: 7.998844e-01","Sw: 0.640<br />FWFa: 8.046303e-01","Sw: 0.641<br />FWFa: 8.092994e-01","Sw: 0.642<br />FWFa: 8.138918e-01","Sw: 0.643<br />FWFa: 8.184075e-01","Sw: 0.644<br />FWFa: 8.228468e-01","Sw: 0.645<br />FWFa: 8.272098e-01","Sw: 0.646<br />FWFa: 8.314967e-01","Sw: 0.647<br />FWFa: 8.357079e-01","Sw: 0.648<br />FWFa: 8.398435e-01","Sw: 0.649<br />FWFa: 8.439042e-01","Sw: 0.650<br />FWFa: 8.478901e-01","Sw: 0.651<br />FWFa: 8.518018e-01","Sw: 0.652<br />FWFa: 8.556397e-01","Sw: 0.653<br />FWFa: 8.594044e-01","Sw: 0.654<br />FWFa: 8.630964e-01","Sw: 0.655<br />FWFa: 8.667163e-01","Sw: 0.656<br />FWFa: 8.702647e-01","Sw: 0.657<br />FWFa: 8.737422e-01","Sw: 0.658<br />FWFa: 8.771495e-01","Sw: 0.659<br />FWFa: 8.804873e-01","Sw: 0.660<br />FWFa: 8.837563e-01","Sw: 0.661<br />FWFa: 8.869572e-01","Sw: 0.662<br />FWFa: 8.900908e-01","Sw: 0.663<br />FWFa: 8.931578e-01","Sw: 0.664<br />FWFa: 8.961590e-01","Sw: 0.665<br />FWFa: 8.990953e-01","Sw: 0.666<br />FWFa: 9.019674e-01","Sw: 0.667<br />FWFa: 9.047762e-01","Sw: 0.668<br />FWFa: 9.075225e-01","Sw: 0.669<br />FWFa: 9.102072e-01","Sw: 0.670<br />FWFa: 9.128310e-01","Sw: 0.671<br />FWFa: 9.153950e-01","Sw: 0.672<br />FWFa: 9.178999e-01","Sw: 0.673<br />FWFa: 9.203467e-01","Sw: 0.674<br />FWFa: 9.227362e-01","Sw: 0.675<br />FWFa: 9.250693e-01","Sw: 0.676<br />FWFa: 9.273469e-01","Sw: 0.677<br />FWFa: 9.295699e-01","Sw: 0.678<br />FWFa: 9.317392e-01","Sw: 0.679<br />FWFa: 9.338556e-01","Sw: 0.680<br />FWFa: 9.359202e-01","Sw: 0.681<br />FWFa: 9.379337e-01","Sw: 0.682<br />FWFa: 9.398970e-01","Sw: 0.683<br />FWFa: 9.418110e-01","Sw: 0.684<br />FWFa: 9.436767e-01","Sw: 0.685<br />FWFa: 9.454949e-01","Sw: 0.686<br />FWFa: 9.472664e-01","Sw: 0.687<br />FWFa: 9.489922e-01","Sw: 0.688<br />FWFa: 9.506731e-01","Sw: 0.689<br />FWFa: 9.523099e-01","Sw: 0.690<br />FWFa: 9.539035e-01","Sw: 0.691<br />FWFa: 9.554548e-01","Sw: 0.692<br />FWFa: 9.569645e-01","Sw: 0.693<br />FWFa: 9.584335e-01","Sw: 0.694<br />FWFa: 9.598627e-01","Sw: 0.695<br />FWFa: 9.612528e-01","Sw: 0.696<br />FWFa: 9.626046e-01","Sw: 0.697<br />FWFa: 9.639190e-01","Sw: 0.698<br />FWFa: 9.651966e-01","Sw: 0.699<br />FWFa: 9.664384e-01","Sw: 0.700<br />FWFa: 9.676450e-01","Sw: 0.701<br />FWFa: 9.688172e-01","Sw: 0.702<br />FWFa: 9.699557e-01","Sw: 0.703<br />FWFa: 9.710613e-01","Sw: 0.704<br />FWFa: 9.721348e-01","Sw: 0.705<br />FWFa: 9.731767e-01","Sw: 0.706<br />FWFa: 9.741879e-01","Sw: 0.707<br />FWFa: 9.751690e-01","Sw: 0.708<br />FWFa: 9.761207e-01","Sw: 0.709<br />FWFa: 9.770436e-01","Sw: 0.710<br />FWFa: 9.779385e-01","Sw: 0.711<br />FWFa: 9.788060e-01","Sw: 0.712<br />FWFa: 9.796467e-01","Sw: 0.713<br />FWFa: 9.804612e-01","Sw: 0.714<br />FWFa: 9.812502e-01","Sw: 0.715<br />FWFa: 9.820144e-01","Sw: 0.716<br />FWFa: 9.827541e-01","Sw: 0.717<br />FWFa: 9.834702e-01","Sw: 0.718<br />FWFa: 9.841631e-01","Sw: 0.719<br />FWFa: 9.848334e-01","Sw: 0.720<br />FWFa: 9.854817e-01","Sw: 0.721<br />FWFa: 9.861085e-01","Sw: 0.722<br />FWFa: 9.867143e-01","Sw: 0.723<br />FWFa: 9.872998e-01","Sw: 0.724<br />FWFa: 9.878653e-01","Sw: 0.725<br />FWFa: 9.884114e-01","Sw: 0.726<br />FWFa: 9.889387e-01","Sw: 0.727<br />FWFa: 9.894475e-01","Sw: 0.728<br />FWFa: 9.899384e-01","Sw: 0.729<br />FWFa: 9.904118e-01","Sw: 0.730<br />FWFa: 9.908683e-01","Sw: 0.731<br />FWFa: 9.913082e-01","Sw: 0.732<br />FWFa: 9.917319e-01","Sw: 0.733<br />FWFa: 9.921400e-01","Sw: 0.734<br />FWFa: 9.925329e-01","Sw: 0.735<br />FWFa: 9.929108e-01","Sw: 0.736<br />FWFa: 9.932744e-01","Sw: 0.737<br />FWFa: 9.936239e-01","Sw: 0.738<br />FWFa: 9.939598e-01","Sw: 0.739<br />FWFa: 9.942825e-01","Sw: 0.740<br />FWFa: 9.945922e-01","Sw: 0.741<br />FWFa: 9.948894e-01","Sw: 0.742<br />FWFa: 9.951745e-01","Sw: 0.743<br />FWFa: 9.954477e-01","Sw: 0.744<br />FWFa: 9.957095e-01","Sw: 0.745<br />FWFa: 9.959601e-01","Sw: 0.746<br />FWFa: 9.962000e-01","Sw: 0.747<br />FWFa: 9.964293e-01","Sw: 0.748<br />FWFa: 9.966485e-01","Sw: 0.749<br />FWFa: 9.968579e-01","Sw: 0.750<br />FWFa: 9.970576e-01","Sw: 0.751<br />FWFa: 9.972482e-01","Sw: 0.752<br />FWFa: 9.974297e-01","Sw: 0.753<br />FWFa: 9.976025e-01","Sw: 0.754<br />FWFa: 9.977670e-01","Sw: 0.755<br />FWFa: 9.979233e-01","Sw: 0.756<br />FWFa: 9.980717e-01","Sw: 0.757<br />FWFa: 9.982124e-01","Sw: 0.758<br />FWFa: 9.983459e-01","Sw: 0.759<br />FWFa: 9.984721e-01","Sw: 0.760<br />FWFa: 9.985916e-01","Sw: 0.761<br />FWFa: 9.987043e-01","Sw: 0.762<br />FWFa: 9.988107e-01","Sw: 0.763<br />FWFa: 9.989109e-01","Sw: 0.764<br />FWFa: 9.990051e-01","Sw: 0.765<br />FWFa: 9.990935e-01","Sw: 0.766<br />FWFa: 9.991765e-01","Sw: 0.767<br />FWFa: 9.992541e-01","Sw: 0.768<br />FWFa: 9.993266e-01","Sw: 0.769<br />FWFa: 9.993941e-01","Sw: 0.770<br />FWFa: 9.994570e-01","Sw: 0.771<br />FWFa: 9.995153e-01","Sw: 0.772<br />FWFa: 9.995692e-01","Sw: 0.773<br />FWFa: 9.996190e-01","Sw: 0.774<br />FWFa: 9.996648e-01","Sw: 0.775<br />FWFa: 9.997068e-01","Sw: 0.776<br />FWFa: 9.997452e-01","Sw: 0.777<br />FWFa: 9.997801e-01","Sw: 0.778<br />FWFa: 9.998117e-01","Sw: 0.779<br />FWFa: 9.998402e-01","Sw: 0.780<br />FWFa: 9.998658e-01","Sw: 0.781<br />FWFa: 9.998885e-01","Sw: 0.782<br />FWFa: 9.999086e-01","Sw: 0.783<br />FWFa: 9.999262e-01","Sw: 0.784<br />FWFa: 9.999414e-01","Sw: 0.785<br />FWFa: 9.999545e-01","Sw: 0.786<br />FWFa: 9.999656e-01","Sw: 0.787<br />FWFa: 9.999748e-01","Sw: 0.788<br />FWFa: 9.999822e-01","Sw: 0.789<br />FWFa: 9.999881e-01","Sw: 0.790<br />FWFa: 9.999926e-01","Sw: 0.791<br />FWFa: 9.999959e-01","Sw: 0.792<br />FWFa: 9.999980e-01","Sw: 0.793<br />FWFa: 9.999993e-01","Sw: 0.794<br />FWFa: 9.999999e-01","Sw: 0.795<br />FWFa: 1.000000e+00"],"type":"scatter","mode":"lines","line":{"width":5.66929133858268,"color":"rgba(0,0,255,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.363,0.698877889451998],"y":[0,1],"text":["c(Swi, Swbtm): 0.3630000<br />c(FWi, 1): 0","c(Swi, Swbtm): 0.6988779<br />c(FWi, 1): 1"],"type":"scatter","mode":"lines","line":{"width":5.66929133858268,"color":"rgba(255,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.664],"y":[0.89615901925279],"text":"Swbt: 0.664<br />Fwbt: 0.896159","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.698877889451998],"y":[1],"text":"Swbtm: 0.6988779<br />y: 1","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":27.8721461187215,"r":7.30593607305936,"b":63.3457866334579,"l":80.0332088003321},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":26.5670402656704},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":21.2536322125363},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Sw","font":{"color":"rgba(0,0,0,1)","family":"","size":26.5670402656704}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":21.2536322125363},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"fw","font":{"color":"rgba(0,0,0,1)","family":"","size":26.5670402656704}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":21.2536322125363}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"31dcd6167cd":{"x":{},"y":{},"type":"scatter"},"31dc1fdb3da1":{"x":{},"y":{}},"31dc78595e70":{"x":{},"y":{}},"31dc5b295955":{"x":{},"y":{}}},"cur_data":"31dcd6167cd","visdat":{"31dcd6167cd":["function (y) ","x"],"31dc1fdb3da1":["function (y) ","x"],"31dc78595e70":["function (y) ","x"],"31dc5b295955":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Now, we can define a Sw vector from <span
+class="math inline">\(S_{wbt}\)</span> to a any water saturation value,
+and estimate oil rates and oil production cumulative</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>SwP</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='va'>Swbt</span>, <span class='fl'>0.75</span>, length.out <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span>
+
+<span class='va'>SwDP</span><span class='op'>=</span> <span class='op'>(</span><span class='va'>SwP</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>Sor</span> <span class='op'>-</span> <span class='va'>Swc</span><span class='op'>)</span>
+<span class='va'>krwaP</span> <span class='op'>=</span> <span class='va'>krwmax</span> <span class='op'>*</span> <span class='va'>SwDP</span> <span class='op'>^</span> <span class='va'>nw</span>
+<span class='va'>kroaP</span> <span class='op'>=</span> <span class='va'>kromax</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>SwDP</span><span class='op'>)</span> <span class='op'>^</span> <span class='va'>no</span>
+
+<span class='va'>FWFp</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>SwDP</span> <span class='op'>^</span> <span class='va'>nw</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='op'>(</span><span class='va'>SwDP</span> <span class='op'>^</span> <span class='va'>nw</span><span class='op'>)</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>A</span> <span class='op'>*</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>SwDP</span><span class='op'>)</span> <span class='op'>^</span> <span class='va'>no</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>B1</span><span class='op'>=</span><span class='va'>nw</span><span class='op'>*</span><span class='op'>(</span><span class='va'>SwDP</span><span class='op'>^</span><span class='op'>(</span><span class='va'>nw</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>SwDP</span><span class='op'>)</span><span class='op'>^</span><span class='va'>no</span>
+<span class='va'>B2</span><span class='op'>=</span><span class='va'>no</span><span class='op'>*</span><span class='va'>SwDP</span><span class='op'>^</span><span class='va'>nw</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>SwDP</span><span class='op'>)</span><span class='op'>^</span><span class='op'>(</span><span class='va'>no</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>B3</span><span class='op'>=</span><span class='va'>SwDP</span><span class='op'>^</span><span class='va'>nw</span><span class='op'>+</span><span class='va'>A</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>SwDP</span><span class='op'>)</span><span class='op'>^</span><span class='va'>no</span>
+
+<span class='va'>dFW</span><span class='op'>=</span><span class='op'>(</span><span class='va'>A</span><span class='op'>*</span><span class='va'>B</span><span class='op'>*</span><span class='op'>(</span><span class='va'>B1</span><span class='op'>+</span><span class='va'>B2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='va'>B3</span><span class='op'>^</span><span class='fl'>2</span>
+
+<span class='va'>td2</span><span class='op'>=</span><span class='fl'>1</span><span class='op'>/</span><span class='va'>dFW</span>
+
+<span class='va'>SwM</span><span class='op'>=</span><span class='va'>SwP</span><span class='op'>+</span><span class='op'>(</span><span class='va'>td2</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>FWFp</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>Qi</span><span class='op'>=</span><span class='fl'>1</span><span class='op'>/</span><span class='va'>dFW</span>
+
+<span class='va'>Vp</span><span class='op'>=</span><span class='va'>L</span><span class='op'>*</span><span class='va'>Ar</span><span class='op'>*</span><span class='va'>Poro</span><span class='op'>/</span><span class='fl'>5.615</span>;
+<span class='va'>qw</span><span class='op'>=</span><span class='op'>(</span><span class='va'>FWFp</span><span class='op'>*</span><span class='va'>Winj</span><span class='op'>)</span><span class='op'>/</span><span class='va'>Bw</span>
+<span class='va'>qo</span><span class='op'>=</span><span class='op'>(</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>FWFp</span><span class='op'>)</span><span class='op'>*</span><span class='va'>Winj</span><span class='op'>)</span><span class='op'>/</span><span class='va'>Bo</span>
+<span class='va'>WOR</span><span class='op'>=</span><span class='va'>FWFp</span><span class='op'>/</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>FWFp</span><span class='op'>)</span>
+<span class='va'>NP</span><span class='op'>=</span><span class='va'>Vp</span><span class='op'>*</span><span class='op'>(</span><span class='va'>SwM</span><span class='op'>-</span><span class='va'>Swi</span><span class='op'>)</span>
+<span class='va'>t</span><span class='op'>=</span><span class='op'>(</span><span class='va'>Qi</span><span class='op'>*</span><span class='va'>Vp</span><span class='op'>)</span><span class='op'>/</span><span class='va'>Winj</span>
+
+<span class='va'>forecast_data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>Time <span class='op'>=</span> <span class='va'>t</span>, Sw <span class='op'>=</span> <span class='va'>SwP</span>,Fw <span class='op'>=</span> <span class='va'>FWFp</span>, Swm <span class='op'>=</span> <span class='va'>SwM</span>, Qi <span class='op'>=</span> <span class='va'>Qi</span>,
+                           Qo <span class='op'>=</span> <span class='va'>qo</span>, WOR <span class='op'>=</span> <span class='va'>WOR</span>, Np <span class='op'>=</span> <span class='va'>NP</span><span class='op'>)</span>  
+
+<span class='va'>forecast_data</span>
+</code></pre>
+</div>
+<pre><code>       Time      Sw        Fw       Swm        Qi         Qo
+1  159.7426 0.66400 0.8961590 0.6989795 0.3368563 29.2485429
+2  204.4821 0.67475 0.9244913 0.7073094 0.4312005 21.2682912
+3  267.6916 0.68550 0.9463864 0.7157645 0.5644932 15.1011528
+4  358.2731 0.69625 0.9629367 0.7242516 0.7555064 10.4395008
+5  490.7674 0.70700 0.9751690 0.7326977 1.0349030  6.9940722
+6  690.0936 0.71775 0.9839920 0.7410453 1.4552310  4.5089182
+7 1001.6904 0.72850 0.9901773 0.7492486 2.1123090  2.7667334
+8 1515.4917 0.73925 0.9943611 0.7572707 3.1957847  1.5882921
+9 2430.6904 0.75000 0.9970576 0.7650817 5.1257048  0.8287652
+         WOR       Np
+1   8.630109 53852.46
+2  12.243502 55187.62
+3  17.651998 56542.84
+4  25.980856 57903.19
+5  39.272199 59256.98
+6  61.468790 60594.98
+7 100.804774 61909.84
+8 176.339332 63195.67
+9 338.863043 64447.64</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>forecast_data</span><span class='op'>$</span><span class='va'>Time</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='va'>forecast_data</span><span class='op'>$</span><span class='va'>Time</span><span class='op'>)</span>,
+                y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Winj</span>,<span class='va'>Winj</span>, <span class='va'>forecast_data</span><span class='op'>$</span><span class='va'>Qo</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Qo"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Days"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="fw1_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<p>The location <span class="math inline">\(x_{Sw}\)</span> of any
+saturation, <span class="math inline">\(Sw\)</span> can be obtained
+usaing the following equation</p>
+<p><span class="math display">\[ x_{Sw} =   \frac{q_tt}{A \phi}
+\left(  \frac{\partial f_w}{\partial S_w} \right)_{Sw} \]</span></p>
+<p>In this case using 100 days</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>days</span> <span class='op'>=</span> <span class='fl'>100</span>
+
+<span class='va'>XL</span> <span class='op'>=</span> <span class='va'>dFW</span><span class='op'>*</span><span class='va'>Winj</span><span class='op'>*</span><span class='va'>days</span><span class='op'>*</span><span class='fl'>5.6146</span><span class='op'>/</span><span class='op'>(</span><span class='va'>Ar</span><span class='op'>*</span><span class='va'>Poro</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>XL</span>, <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>XL</span><span class='op'>)</span>, <span class='va'>L</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>SwP</span>, <span class='va'>Swi</span>, <span class='va'>Swi</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"X"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Sw"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="fw1_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+
+
+<script data-ad-client="ca-pub-8852121115266328" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="rigochando" data-color="#40DCA5" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+</div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="disqus-comments">
+      <i class="fas fa-comments"></i>
+      &nbsp;
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2022-06-08-fw1/">Comment on this article</span>
+    </span>
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=Fontral%20advance%20equation%3A%20part%201%20&amp;url=https%3A%2F%2Fwww.chatosolutions.com%2Fposts%2F2022-06-08-fw1%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.chatosolutions.com%2Fposts%2F2022-06-08-fw1%2F&amp;title=Fontral%20advance%20equation%3A%20part%201%20">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </span>
+  </p>
+  <script id="dsq-count-scr" src="https://https-www-chatosolutions-com.disqus.com/count.js" async></script>
+  <div id="disqus_thread" class="hidden"></div>
+  <script type="text/javascript" cookie-consent="functionality">
+var disqus_config = function () {
+  this.page.url = 'https://www.chatosolutions.com/posts/2022-06-08-fw1/';
+  this.page.identifier = 'posts/2022-06-08-fw1/';
+};
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://https-www-chatosolutions-com.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Vazquez (2022, June 8). Chato Solutions: Fontral advance equation: part 1 . Retrieved from https://www.chatosolutions.com/posts/2022-06-08-fw1/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{vazquez2022fontral,
+  author = {Vazquez, Rigoberto Chandomi},
+  title = {Chato Solutions: Fontral advance equation: part 1 },
+  url = {https://www.chatosolutions.com/posts/2022-06-08-fw1/},
+  year = {2022}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+  <p>Â© Chato Solutions 2021. Made with the R [distill] package.</p>
+</div>
+<!--/radix_placeholder_navigation_after_body-->
+
+
+</body>
+
+</html>
