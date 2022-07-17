@@ -7,7 +7,17 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Group by using Dplyr</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-07-17-dlyr1</link>
+      <description>Make operations by group using dplyr package</description>
+      <category>-R -dplyr -Petrophysics</category>
+      <guid>https://www.chatosolutions.com/posts/2022-07-17-dlyr1</guid>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-07-17-dlyr1/table_img.png" medium="image" type="image/png" width="264" height="179"/>
+    </item>
     <item>
       <title>Fontral advance equation: part 1 </title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
