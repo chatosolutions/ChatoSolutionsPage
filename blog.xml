@@ -7,13 +7,24 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Well diagnostic plots, Chan Plot</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-07-21-chanplot</link>
+      <description>Several methods can be useful in the identification the origin of excess water production</description>
+      <guid>https://www.chatosolutions.com/posts/2022-07-21-chanplot</guid>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-07-21-chanplot/chanplot_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Group by using Dplyr</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
       <link>https://www.chatosolutions.com/posts/2022-07-17-dlyr1</link>
       <description>Make operations by group using dplyr package</description>
-      <category>-R -dplyr -Petrophysics</category>
+      <category>R</category>
+      <category>dplyr</category>
+      <category>Petrophysics</category>
       <guid>https://www.chatosolutions.com/posts/2022-07-17-dlyr1</guid>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       <media:content url="https://www.chatosolutions.com/posts/2022-07-17-dlyr1/table_img.png" medium="image" type="image/png" width="264" height="179"/>
