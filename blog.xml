@@ -7,7 +7,16 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Composite IPR Curves</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-07-23-picomposite</link>
+      <description>This methods is used with oil wells with water production</description>
+      <guid>https://www.chatosolutions.com/posts/2022-07-23-picomposite</guid>
+      <pubDate>Sat, 23 Jul 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-07-23-picomposite/grafico_PI.png" medium="image" type="image/png" width="891" height="825"/>
+    </item>
     <item>
       <title>Well diagnostic plots, Chan Plot</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
