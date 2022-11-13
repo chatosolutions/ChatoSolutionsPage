@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -2136,28 +2137,58 @@ Shiny Apps
 </div>
 
 <div class="d-byline">
-  Rigoberto Chandomi Vazquez <a href="https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/" class="uri">https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/</a> 
+  Rigoberto Chandomi Vazquez <a
+href="https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/"
+class="uri">https://www.linkedin.com/in/rigoberto-chandomi-v%C3%A1zquez-79038495/</a> 
   
 <br/>01-24-2022
 </div>
 
 <div class="d-article">
-<p>The IPR curve is a graphical presentation of the relationship between the flowing botton-hole pressure and the liquid production rate. The magnitud of the slope of IPR curve is called productivity index (<span class="math inline">\(PI\)</span> or <span class="math inline">\(J\)</span>), expressed as:</p>
-<p><span class="math display">\[J=\frac{q}{P_e-P_{wf}} \ \ (1)\]</span></p>
-<p>For undersaturated oil reservoir or reservoir regions where the pressure is greater than the bubble-point pressure we can use the following equations</p>
-<p>"“For radial transient flow around a vertical well”" <span class="math display">\[J^*=\frac{q}{(P_e-P_{wf})}=\frac{kh}{162.6B_o\mu_o(logt+log \frac{k}{\phi\mu_oc_tr^{2}_w}-3.23+0.87S)}\]</span> "“For radial steady-state flow around a vertical well”" <span class="math display">\[J^*=\frac{q}{(P_e-P_{wf})}=\frac{kh}{141.2B_o\mu_o(In\frac{r_e}{r_w}+S)}\]</span> \For pseudo-steady-state flow around a vertical well\ <span class="math display">\[J^*=\frac{kh}{141.2B_o\mu_o(In\frac{r_e}{r_w}-\frac{3}{4}+S)}\\J^*=\frac{q}{(P-P_{wf})}=\frac{kh}{141.2B_o\mu_o(\frac{1}{2}In\frac{4A}{\gamma{C_A}r^{2}_w}+S)}\]</span> \For steady-state flow around a fractured well\ <span class="math display">\[J^*=\frac{q}{(P_e-P_{wf})}=\frac{kh}{141.2B_o\mu_o(In\frac{r_e}{r_w}+S_f)}\]</span> \For steady-state flow around a horizontal well\ <span class="math display">\[j^{*}=\frac{q}{(P_e-P_{wf})}=\frac {k_Hh} {141.2B_o\mu_o\left[In\left[\frac{a+\sqrt{a^{2}-(L/2)^{2}}}{L/2}\right]+\frac{1_{ani}h}{L}In\left[\frac{1_{ani}h}{r_w(1_{ani}+1)}\right]\right]}\]</span></p>
+<p>The IPR curve is a graphical presentation of the relationship between
+the flowing botton-hole pressure and the liquid production rate. The
+magnitud of the slope of IPR curve is called productivity index (<span
+class="math inline">\(PI\)</span> or <span
+class="math inline">\(J\)</span>), expressed as:</p>
+<p><span class="math display">\[J=\frac{q}{P_e-P_{wf}} \ \
+(1)\]</span></p>
+<p>For undersaturated oil reservoir or reservoir regions where the
+pressure is greater than the bubble-point pressure we can use the
+following equations</p>
+<p>““For radial transient flow around a vertical well”” <span
+class="math display">\[J^*=\frac{q}{(P_e-P_{wf})}=\frac{kh}{162.6B_o\mu_o(logt+log
+\frac{k}{\phi\mu_oc_tr^{2}_w}-3.23+0.87S)}\]</span> ““For radial
+steady-state flow around a vertical well”” <span
+class="math display">\[J^*=\frac{q}{(P_e-P_{wf})}=\frac{kh}{141.2B_o\mu_o(In\frac{r_e}{r_w}+S)}\]</span>
+\For pseudo-steady-state flow around a vertical well\ <span
+class="math display">\[J^*=\frac{kh}{141.2B_o\mu_o(In\frac{r_e}{r_w}-\frac{3}{4}+S)}\\J^*=\frac{q}{(P-P_{wf})}=\frac{kh}{141.2B_o\mu_o(\frac{1}{2}In\frac{4A}{\gamma{C_A}r^{2}_w}+S)}\]</span>
+\For steady-state flow around a fractured well\ <span
+class="math display">\[J^*=\frac{q}{(P_e-P_{wf})}=\frac{kh}{141.2B_o\mu_o(In\frac{r_e}{r_w}+S_f)}\]</span>
+\For steady-state flow around a horizontal well\ <span
+class="math display">\[j^{*}=\frac{q}{(P_e-P_{wf})}=\frac {k_Hh}
+{141.2B_o\mu_o\left[In\left[\frac{a+\sqrt{a^{2}-(L/2)^{2}}}{L/2}\right]+\frac{1_{ani}h}{L}In\left[\frac{1_{ani}h}{r_w(1_{ani}+1)}\right]\right]}\]</span></p>
 <p>Example in R</p>
-<p>Using the following data we can calculate and graph the IPR for a vertical well in an oil reservoir considering pseudo-steady state flow.</p>
+<p>Using the following data we can calculate and graph the IPR for a
+vertical well in an oil reservoir considering pseudo-steady state
+flow.</p>
 <p><span class="math inline">\(Porosity = 0.19\)</span></p>
 <p><span class="math inline">\(Permeability: k = 8.2 \ md\)</span></p>
-<p><span class="math inline">\(Pay \ zone \ thickness: h = 53 \ ft\)</span></p>
-<p><span class="math inline">\(Reservoir \ pressure: P_e = 5651 \ psi\)</span></p>
-<p><span class="math inline">\(Bubble-point \  pressure: p_b=5651 \ psia\)</span></p>
-<p><span class="math inline">\(Oil \ formation \ volume \ factor: B_o=1.1\)</span></p>
-<p><span class="math inline">\(Oil \ viscosity: \mu _o = 1.7 \ cp\)</span></p>
-<p><span class="math inline">\(Total compressibility: c_t = 0.0000129 \ psi^{-1}\)</span></p>
-<p><span class="math inline">\(Drainage \ area: A = 640 \ acres \ (re=2980 \ ft)\)</span></p>
-<p><span class="math inline">\(Wellbore \ radius: r_w=0.328 \ ft\)</span></p>
+<p><span class="math inline">\(Pay \ zone \ thickness: h = 53 \
+ft\)</span></p>
+<p><span class="math inline">\(Reservoir \ pressure: P_e = 5651 \
+psi\)</span></p>
+<p><span class="math inline">\(Bubble-point \  pressure: p_b=5651 \
+psia\)</span></p>
+<p><span class="math inline">\(Oil \ formation \ volume \ factor:
+B_o=1.1\)</span></p>
+<p><span class="math inline">\(Oil \ viscosity: \mu _o = 1.7 \
+cp\)</span></p>
+<p><span class="math inline">\(Total compressibility: c_t = 0.0000129 \
+psi^{-1}\)</span></p>
+<p><span class="math inline">\(Drainage \ area: A = 640 \ acres \
+(re=2980 \ ft)\)</span></p>
+<p><span class="math inline">\(Wellbore \ radius: r_w=0.328 \
+ft\)</span></p>
 <p><span class="math inline">\(Skin \ factor: S=0\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2218,8 +2249,13 @@ Shiny Apps
 </div>
 <p><img src="pi1_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<p>The last IPR model us valid for pressure above bubble-point pressure.</p>
-<p>With the last code we can create a function to automate IPR calculations, if you want to know more about functions in R check the this link, <a href="https://www.chatosolutions.com/posts/2021-11-03-function1/">Define function in R</a></p>
+<p>The last IPR model us valid for pressure above bubble-point
+pressure.</p>
+<p>With the last code we can create a function to automate IPR
+calculations, if you want to know more about functions in R check the
+this link, <a
+href="https://www.chatosolutions.com/posts/2021-11-03-function1/">Define
+function in R</a></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Darcy_PSS</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>py</span>,<span class='va'>k</span>,<span class='va'>h</span>,<span class='va'>Bo</span>,<span class='va'>viso</span>,<span class='va'>re</span>,<span class='va'>rw</span>,<span class='va'>S</span><span class='op'>)</span><span class='op'>{</span>
@@ -2277,7 +2313,8 @@ Shiny Apps
 
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="rigochando" data-color="#40DCA5" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

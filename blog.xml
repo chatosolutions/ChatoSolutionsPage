@@ -7,7 +7,18 @@
     <description>Chato Solutions
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 23 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Simple linear regression: Y - Function example</title>
+      <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
+      <link>https://www.chatosolutions.com/posts/2022-07-24-lm1</link>
+      <description>Simple linear regression: Y - Function example</description>
+      <category>R</category>
+      <category>Reservoir engineering</category>
+      <guid>https://www.chatosolutions.com/posts/2022-07-24-lm1</guid>
+      <pubDate>Sun, 24 Jul 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://www.chatosolutions.com/posts/2022-07-24-lm1/lm1_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Composite IPR Curves</title>
       <dc:creator>Rigoberto Chandomi Vazquez</dc:creator>
